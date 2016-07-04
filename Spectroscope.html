@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
+        <title> R Czyrnik Website </title>
+    </head>
+
+    <body>
+
+      <div id="header">
+          <div id="button"><a class="nav" href="FrontPage.html">Home</a></div>
+          <h1> Cell Phone Spectroscope </h1>
+      </div>
+      <div id="sidebar">
+      Origin:
+      <p>
+      I like to start each day by sitting down with a cup of coffee and the New York Times. 
+      I read the NYT because it makes me feel wordly and educated, even though I 
+      mostly read the advice columns and human interest stories. 
+      </p>
+      <p>
+      On Monday, May 9th, 
+      <a href="http://www.nytimes.com/2016/05/09/science/watch-mercury-sail-across-the-sun.html?_r=0">this</a>
+      article featured on the front page, announcing a ten-or-so-times-in-a-lifetime 
+      opportunity to watch Mercury's path across the sun. Obviously, I dropped
+      whatever plans I had for my classes and used my first-period planning time 
+      to throw together a quick lesson and a long pin-hole camera.
+      </p>
+      <p>
+      The previous transit, that of Venus in June, 2012, caught me equally 
+      unaware. I had no sun filter, but I did remember the pin-hole camera technique 
+      I used the previous year to view a solar eclipse. With a very confused dog watching
+      me ("Why aren't we in our comfy air-conditioned apartment?"), I cobbled together first 
+      a 15-cm and then a 150-cm long camera that projected images of the sun onto a sheet
+      of white paper.
+      </p>
+      <p>
+      One of the best parts of teaching physics is all the cool stuff in the back room.
+      This year, rather than taping together the cardboard from my apple box, I just had
+      to cut a hole in the 1.8 m long cylindrical packaging to a resonance tube. 
+      </p>
+      <p>
+      As much as I enjoyed taking a hacksaw to school propery, it turned out to be unnecesary. 
+      The astronomy teacher has a sun-spotter that quickly and easily bends and focuses 
+      sunlight through a series of mirrors and lenses. At the end of this process is a clear, 
+      8 cm wide image of the sun that showed both a sun spot an Mercury. The students thought 
+      this was cool enough for a "Can I take out my phone to snap chat this?".
+      </p>
+      <p>
+      Anyway, back in the classroom our celestial phenemon prompted a discussion of exoplanets
+      and their detection methods. I explained that the detectors in telescopes were really
+      just fancy versions of the detectors in our cell phone cameras, and here the idea was born.
+      </p>
+      </div>
+
+
+      <div id="mainText">
+        <h2> The Science </h2>
+          <h3> Emission Spectra </h3>
+          <h3> CCD Cameras </h3>
+        <h2> The Project </h2>
+          <h3> Building the Spectroscope </h3>
+            <p>
+            I based my design off the example from MIT Open Courses:, and modified it to fit my phone.
+            </p>
+            <p> I found an ugly magenta phone case in a bargin bin for $3. With a bit of (unnecessary) 
+            spray paint, I converyed it to a more reasonable and boring black.
+            </p>
+            <p>I cut up a small piece of difraction grating, found in my classroom but also avaible
+            online for cheap. Or you could do what MIT recommends and cut up a CD, although if you're 
+            like me you would have to go out a buy a CD to cut up. No body has those things anymore. 
+            Where's AOL Online when we need them?.
+            </p>
+            <p> I shortened the tube until I could see the full spectrum as large as possible, around 
+            2 cm long, I think. In one model (found here), the tube was bent to the side to capture 
+            the rainbow from just one side of the slit, but I thought it might be nice to have two sides 
+            to get twice as much data. (Just kidding, I was too lazy to make a slanted cut).
+            <p>
+            The final spectroscope looked like this:
+            </p>
+            
+          <h3> Analyzing the Data </h3>
+            <p> The data analysis goes like this:
+            </p>
+            <h4> Crop and Convert </h4>
+            <img src="Step1.png" alt="step 1" width=500px>
+
+            <h4> Convert to a Histogram </h4>
+            <img src="Step2.png" alt="step 2" width=500px>
+            
+            <h4> Crop to the Interesting Region </h4>
+            <img src="Step3.png" alt="step 3" width=500px>
+            
+            <h4> Convert Pixel Positon to Wavelength </h4>
+            <img src="Step4.png" alt="step 4" width=500px>
+            <p> Note that the peaks appear at blue, green, yellow, and red, just like in the original 
+            photo.
+            </p>
+            <h4> Find peaks </h4>
+            <img src="Step5.png" alt="step 5" width=500px>
+            <img src="Step6.png" alt="step 6" width=500px>
+
+
+            <h4> Match with elements </h4>
+            <p> I haven't figured this out yet. 
+            </p>
+
+
+
+    </div>   
+
+    </body>    
