@@ -26,11 +26,11 @@ p {
 }
 
 #projectBox {
-    border-radius: 5px;
+    border-radius: 50px;
     background-color: #999999;
     position: relative;
     padding: 20px;
-    margin-left: 20px;
+    margin-left: 200px;
     height: 200px;
     width: 700px;
 }   
