@@ -3,41 +3,36 @@
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
-        <title> R Czyrnik Website </title>
+        <title> Making A Spectroscope </title>
     </head>
 
     <body>
 
-        <div id="godBox">
 
         <div id="header">
             <div id="button"><a class="nav" href="index.html">
                 <img src="home.png" width="60pt">
             </a></div>
-          
             <h1> Cell Phone Spectroscope </h1>
         </div>
       
         <div id="sidebar">
-      Origin:
-      <p>
-      I like to start each day by sitting down with a cup of coffee and the New York Times. 
-      I read the NYT because it makes me feel wordly and educated, even though I 
-      mostly read the advice columns and human interest stories. 
-      </p>
-      <p>
-      On Monday, May 9th, 
+      <h2>Origin</h2>
+      <p>  I like to start each day by sitting down with a cup of coffee and 
+      the New York Times. I read the NYT because it makes me feel wordly and 
+      educated, even though I mostly read the advice columns and human interest stories. </p>
+      <p> On Monday, May 9th, 
       <a href="http://www.nytimes.com/2016/05/09/science/watch-mercury-sail-across-the-sun.html?_r=0">this</a>
       article featured on the front page, announcing a ten-or-so-times-in-a-lifetime 
       opportunity to watch Mercury's path across the sun. Obviously, I dropped
-      whatever plans I had for my classes and used my first-period planning time 
+      my plans and used my first-period planning time 
       to throw together a quick lesson and a long pin-hole camera.
       </p>
       <p>
       The previous transit, that of Venus in June, 2012, caught me equally 
       unaware. I had no sun filter, but I did remember the pin-hole camera technique 
       I used the previous year to view a solar eclipse. With a very confused dog watching
-      me ("Why aren't we in our comfy air-conditioned apartment?"), I cobbled together first 
+      me ("Why aren't we in our comfy air-conditioned apartment!?"), I cobbled together first 
       a 15-cm and then a 150-cm long camera that projected images of the sun onto a sheet
       of white paper.
       </p>
@@ -61,34 +56,72 @@
       </div>
 
 
-      <div id="mainText">
-        <h2> The Science </h2>
-          <h3> Emission Spectra </h3>
-          <h3> CCD Cameras </h3>
-        <h2> The Project </h2>
-          <h3> Building the Spectroscope </h3>
-            <p>
-            I based my design off the example from MIT Open Courses:, and modified it to fit my phone.
-            </p>
-            <p> I found an ugly magenta phone case in a bargin bin for $3. With a bit of (unnecessary) 
-            spray paint, I converyed it to a more reasonable and boring black.
-            </p>
-            <p>I cut up a small piece of difraction grating, found in my classroom but also avaible
-            online for cheap. Or you could do what MIT recommends and cut up a CD, although if you're 
-            like me you would have to go out a buy a CD to cut up. No body has those things anymore. 
-            Where's AOL Online when we need them?.
-            </p>
-            <p> I shortened the tube until I could see the full spectrum as large as possible, around 
-            2 cm long, I think. In one model (found here), the tube was bent to the side to capture 
-            the rainbow from just one side of the slit, but I thought it might be nice to have two sides 
-            to get twice as much data. (Just kidding, I was too lazy to make a slanted cut).
-            <p>
-            The final spectroscope looked like this:
-            </p>
-            
-          <h3> Analyzing the Data </h3>
-            <p> The data analysis goes like this:
-            </p>
+      <div id="content">
+          <h2> OVERVIEW </h2>
+            <p> Generally speaking, the steps are as follows: </p>
+            <ol> 
+                <li> Build the phone attachment </li>
+                <li> Take the picture </li>
+                <li> Convert the raw data to a useable array </li>
+                <li> Try to optimize the data by straightening the curve (and then
+            give up) </li>
+                <li> Take just a fraction of the data and turn it into a cool
+                histogram </li>
+                <li> Use red and green LASERS to calibrate the data </li>
+                <li> Compare the data to known spectra to determine the element
+                </li>
+            </ol>
+        </div>
+        <div id="content">
+
+          <h2> Building the Spectroscope </h2>
+            <p> I based my design off the example from MIT Open Courses, and 
+            modified it to fit my phone. </p>
+            <p> I found an ugly magenta phone case in a bargin bin for $3. 
+            With a bit of (unnecessary) spray paint, I converted it to a more 
+            reasonable and boring black. </p>
+            <p> I cut up a small piece of difraction grating, found in my 
+            classroom but also avaible online for cheap. Or you could do what 
+            MIT recommends and cut up a CD, although if you're like me you would 
+            have to go out a buy a CD to cut up. No body has those things anymore. 
+            Where's AOL Online when we need them? </p>
+            <p> I shortened the tube until I could see the full spectrum as 
+            large as possible, around 2 cm long, I think. In one model (found 
+            here), the tube was bent to the side to capture the rainbow from 
+            just one side of the slit, but I thought it might be nice to have two 
+            sides to get twice as much data. (Just kidding, I was too lazy to make 
+            a slanted cut). </p>
+            <p> The final spectroscope looked like this: </p>
+            <img class="displayed" src="Spectroscope.JPG">
+        </div>
+        <div id="content">
+          <h2> Take the picture </h2>
+            <p> I have a massive advantage as a physics teacher, because I have
+            access to the glowing tubes we use when investigating the
+            electromagnetic spectrum. </p>
+            <p> Surprisingly, the trickiest part of this part of this adventure
+            was finding a program to take pictures without compression. </p>
+            <p> "Oh no!" the internet says. "Nowadays compression algorithms are
+            so good that there is pratically no loss of information. There's no
+            reason you could ever want to deal with uncompressed data", they
+            say.</p>
+            <p> What they haven't considered is you might be a physics teacher
+            with a passing interest in astronomy and a desire to build your own
+            optical instruments, and that success requires a pixel-by-pixel analysis 
+            of the data. </p>
+            <p> (Internet people thinking they know what you want grumble
+            grumble grumble multinational corporations cough cough apple cough
+            cough removing features from the default camera app grumble grumble
+            grumble) </p>
+            <p> Anyway, I eventually found a free app that would let me save my
+            pictures as tif files. </p>
+            <p> Here's what the raw data looked like: </p>
+            <img class="displayed" src="Element1.jpg">
+        </div>
+        <div id="content">
+        
+          <h2> Analyzing the Data </h2>
+            <p> The data analysis goes like this: </p>
             <h4> Crop and Convert </h4>
             <img src="Step1.png" alt="step 1" width=500px>
 
@@ -106,14 +139,13 @@
             <h4> Find peaks </h4>
             <img src="Step5.png" alt="step 5" width=500px>
             <img src="Step6.png" alt="step 6" width=500px>
+        </div>
+        <div id="content">
 
-
-            <h4> Match with elements </h4>
-            <p> I haven't figured this out yet. 
-            </p>
+            <h2> Match with elements </h2>
+            <p> I haven't figured this out yet. </p>
 
 
 
     </div>   
-    </div>
     </body>    
