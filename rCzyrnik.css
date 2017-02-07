@@ -13,14 +13,12 @@ h2 {
     font-family: sans-serif;
     }
 
-a.nav {
-    color: black;
-    }
-
+/* I like justified text */
 p {
     text-align: justify;
     }
 
+/* each of the project boxes on the front page */
 #subcontent {
     font-size: 13pt;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -29,9 +27,23 @@ p {
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    padding-bottom: 40pt;
+    padding-bottom: 80pt;
 }
 
+/* mini projects */
+#projectBox {
+    background-color: lightgray;
+    min-width: 100px;
+    max-width: 600pt;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20pt;
+    position: relative;
+    padding: 20px;
+    
+}   
+
+/* Used once(?) in the spectroscope page */
 IMG.displayed {
     display: block;
     margin-left: auto;
@@ -40,13 +52,22 @@ IMG.displayed {
     max-height: 300px;
     }
 
+/* picture format for front page */
 IMG.projects {
     display: block;
     height: 200px;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* For the screenshots on the Mini Learning page */
+IMG.screenshot {
+    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* Head of each webpage */
 #header {
     font-family: Arial;
     border-bottom: 2px solid; 
@@ -54,27 +75,23 @@ IMG.projects {
     color: Black;
 }
 
+/* basic site layout has content in the middle
+    with white space on sides */
 #content {
     left: 100pt;
     right: 100pt;
-    bottom: 20pt;
     float: none;
     margin: 0 auto;
-
 }
 
-#projectBox {
-    background-color: white;
-    height: 200px;
-    width: 700px;
-}   
 
+/* project photo (maybe should be renamed?) */
 #photo {
     float: left;
     width: 200px
 }
 
-
+/* Title and description of projects */
 #text {
     color: black;
     padding: 4px;
@@ -82,41 +99,25 @@ IMG.projects {
     margin-right: 20px;
 }
 
+/* Project title on the front page */
 #title {
     font-family: Arial;
     font-size: 18pt;
     }
 
-#description {
-    margin-top: 18pt; 
-    text-align: justify;
-    }
-
+/* links should (generally) not look like links */
 a {
     text-decoration: none;
     }
 
-#ProjectTitle {
-    margin-left: 100px;
-    }
-
-
-/* Spectroscope Page */
-
+/* Home Page Button */
 #button {
     position: absolute;
     right: 10px;
     margin-right: 18px;
 }
 
-#mainText {
-    min-height: 2000px;
-    padding-top: 15px;
-    padding-left: 15px;
-    padding-right: 275px;
-    min-width: 200px;
-}
-
+/* Gray thing at the top of Spectroscope Page */
 #sidebar {
     margin-right: 10px;
     background-color: #bbbbbb;
