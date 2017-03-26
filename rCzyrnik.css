@@ -1,3 +1,4 @@
+
 body {
     background-color: white;
     margin: 20pt;
@@ -9,7 +10,6 @@ h1 {
     }
 
 h2 {
-    text-align: center;
     font-family: sans-serif;
     }
 
@@ -117,13 +117,16 @@ a {
     margin-right: 18px;
 }
 
-/* Gray thing at the top of Spectroscope Page */
-#sidebar {
-    margin-right: 10px;
-    background-color: #bbbbbb;
-    padding: 4pt;
+/* Boxes for my background story */
+#BackgroundBox {
+    width: 300pt;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #87CEFA;
+    padding: 20pt;
     text-align: justified;
     border-radius: 5px;
     margin-top: 20px;
     font-size: 12pt;
 }
+

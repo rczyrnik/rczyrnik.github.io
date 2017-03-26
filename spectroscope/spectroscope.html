@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="../rCzyrnik.css"/>
+        <title> Making A Spectroscope </title>
+    </head>
+
+    <body>
+
+
+    <div id="header">
+        <div id="button"><a class="nav" href="../index.html">
+            <img src="home.png" width="60pt">
+        </a></div>
+        <h1> Cell Phone Spectroscope </h1>
+    </div>
+  
+
+    <h3>Click <a href = "backstory/backstory.html"> here </a> for the backstory </h3>
+    
+    <p> Steps: </p>
+    <ol> 
+        <li> <a href = "#build">Build the phone attachment</a></li>
+        <li> <a href = "#picture">Take the picture</a></li>
+        <li> <a href = "#straighten">Straighten the curve</a></li>
+        <li> <a href = "#histogram">Turn the data into a cool histogram </a></li>
+        <li> <a href = "#lasers">Use lasers to calibrate the data </a></li>
+
+    </ol>
+
+
+
+  <h2 id="build"> Building the Spectroscope </h2>
+    <p> I based my design off the example from MIT Open Courses, and modified it to fit my phone. </p>
+    <p> I found an ugly magenta phone case in a bargin bin for $3. With a bit of (unnecessary) spray paint, I converted it to a more reasonable and boring black. </p>
+    <p> I cut up a small piece of difraction grating, found in my classroom but also avaible online for cheap. Or you could do what MIT recommends and cut up a CD, although if you're like me you would have to go out a buy a CD to cut up. Where's AOL when we need them? </p>
+    <p> I shortened the tube until I could see the full spectrum as large as possible, around 2 cm long, I think. In one model (found here), the tube was bent to the side to capture the rainbow from just one side of the slit, but I thought it might be nice to have two sides to get twice as much data. (Just kidding, I was too lazy to make a slanted cut). </p>
+    <p> The final spectroscope looked like this: </p>
+    <img class="displayed" src="Spectroscope.JPG">
+
+
+
+    <h2 id="picture"> Taking the picture </h2>
+        <p> I have a massive advantage as a physics teacher, because I have
+        access to the glowing tubes we use when investigating the
+        electromagnetic spectrum. </p>
+        <p> Surprisingly, the trickiest part of this part of this adventure
+        was finding a program to take pictures without compression. </p>
+        <p> "Oh no!" the internet says. "Nowadays compression algorithms are
+        so good that there is pratically no loss of information. There's no
+        reason you could ever want to deal with uncompressed data", they
+        say.</p>
+        <p> What they haven't considered is you might be a physics teacher
+        with a passing interest in astronomy and a desire to build your own
+        optical instruments. </p>
+        <p> (Internet people thinking they know what you want grumble
+        grumble grumble multinational corporations cough cough apple cough
+        cough removing features from the default camera app grumble grumble
+        grumble) </p>
+        <p> Anyway, I eventually found a free app that would let me save my
+        pictures as tif files. </p>
+        <p> Here's what the raw data looked like: </p>
+        <img class="displayed" src="Element1.jpg">
+    
+        
+
+    <h2 id="straighten"> Straightening the Data </h2>
+        <p> You probably noticed that the lines above are curved and
+        wondered what I'm going to do about that. The answer turns out to be
+        "not a darn thing". </p>
+        <p> I did manage to straighten out the picture, and I had a good
+        time doing it. First I had to convert the picture to an array
+        (technically a list of lists, I think). Then I found the maximum
+        value for each row of data and fit a parabola to the data (assuming
+        that the data is quadratic).
+        </p>
+        <p> Using the line of best fit, I created a scale factor for each
+        row to shorten each row down to the same length as the middle row. </p>
+        <p> The end result looked like this: </p>
+        <img class="displayed" src="Straight.png">
+        <p> So straight! </p>
+        <p> Alas, the actual data from the straightened picture was worse
+        than just taking data from the middle of the unstraightened pic. So
+        it goes. </p>
+
+
+
+    <h2 id="histogram"> Making a Historgram </h2>
+
+        <h3> Read in the data </h3>
+        <pre><code>
+        from PIL import Image
+        
+        def readImage(element):
+            tiff = "tif/Element" + str(element)  + ".tif"    
+            img = Image.open(tiff)
+            return img
+        </code></pre>
+        
+        <h3> Crop the image and convert to grayscale </h3>
+        <img src="Step1.png" alt="step 1" width=500px>
+            
+        <pre><code>
+        def cropImage(img, CropHeight):
+            width, height = img.size
+            box = (0, height/2-CropHeight/2, width, height/2+CropHeight/2)
+            img = img.crop(box).convert('L')
+            return imgage
+        </code></pre>
+
+        <h3> Flatten the image </h3>
+        <img src="Step2.png" alt="step 2" width=500px>
+        <pre><code>
+        def flattenImage(img):
+            w, h = img.size
+            data = []
+            for x in range(w):
+                value = 0
+                for  y in range(h):
+                value = value + img.getpixel((x,y))
+                data = data + [value]
+            return data
+        </code></pre>
+
+        <h3> Find the center </h3>
+        <code><pre>
+        def findCenter(data):	
+            maximum = 0    # maximum value
+            maximum_x = 0  # x position of maximum value
+
+            for x in range(0, len(data)):
+                if data[x] > maximum:
+                maximum = data[x]
+                maximum_x = x
+
+            twothirds = maximum * .6667
+            bottom = maximum_x
+            top = maximum_x
+
+            while data[bottom] > twothirds:
+                bottom = bottom - 1
+            while data[top] > twothirds:
+                top = top + 1
+
+            return int((bottom + top)/2)
+        </code></pre>
+
+        <h3> Crop the data to visible wavelengths </h3>
+        <img src="Step3.png" alt="step 3" width=500px>
+        <pre><code>
+        def cropData(data, center, start, end):
+            start = center+start
+            end = center+end
+            data = data[start:end]
+            return data
+        </code></pre>
+
+
+        <h3> Smooth out the data to reduce noise </h3>
+        <pre><code>
+        def smoothData(data, times):
+            for i in range(0, times):
+                smooth_data = []
+                for x in range(0, len(data)-1):
+                    smooth_data = smooth_data + [(data[x-1]+2*data[x]+data[x+1])/4]
+                data = smooth_data
+            return data
+        </code></pre>
+
+        
+        <h3> Find the peaks </h3>
+        <img src="Step5.png" alt="step 5" width=500px>
+        <pre><code>
+        def findPeaks(data):
+            peakPosition = []
+            peakHeight = []
+            avg = sum(data)/len(data)
+            for x in range(1, len(data)-1):
+                    if data[x-1] < data [x] and data[x+1] < data[x] and
+                    data[x] > avg:
+                    peakHeight = peakHeight+[data[x]]
+                    peakPosition = peakPosition+[x]
+            return (peakPosition,peakHeight)
+        </code></pre>
+
+
+        <h4 id="lasers"> Convert Pixel Positon to Wavelength </h4>
+        <img src="Step4.png" alt="step 4" width=500px>
+        <p> Note that the peaks appear at blue, green, yellow, and red, just like in the original photo.</p>
+        
+        <h4> Find peaks </h4>
+        <img src="Step6.png" alt="step 6" width=500px>
+
+
+    </div>   
+    </body>    
