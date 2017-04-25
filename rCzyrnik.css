@@ -130,3 +130,8 @@ a {
     font-size: 12pt;
 }
 
+.codeBox {
+    background-color: lightgrey;
+    width: 500pt;
+    /*margin-right: 10pt;*/
+    }
