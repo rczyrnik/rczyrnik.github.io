@@ -8,25 +8,55 @@
 
     <body>
 
-
-    <div id="header">
-        <div id="button"><a class="nav" href="index.html">
+<!--/*><><><><><><><><><><><><>  HEADER  <><><><><><><><><><><*/-->
+    <div class="header">
+        <div class="home_button"><a class="nav" href="index.html">
             <img src="home.png" width="60pt">
         </a></div>
         <h1> Cell Phone Spectroscope </h1>
     </div>
-  
-
-    <h3>Click <a href = "backstory.html"> here </a> for the backstory </h3>
+   
+   <!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
+   <div class="navbar">
+       <table>
+           <tr>
+               <th><a href="index.html">Introduction</a></th>
+               <th><a href="buttonBoop.html">Button Boop</a></th>
+               <th><a href="spectroscope.html">Spectroscope</a></th>
+               <th><a href="miniLearning.html">Short Projects</a></th>
+               <th><a href="firstWebsite/MFW_FrontPage.html">Web Design</a></th>
+              <th><a href="summerToDo.html">Future Projects</a></th>
+           </tr>
+       </table>
+   </div>
+   
+   
+   
+   <!--/*><><><><><><><><><><><><>  LINK BOX  <><><><><><><><><><><*/-->
+   <div class="link_box">
+       <p><a href="https://github.com/rczyrnik/iPhoneSpectroscope">Spectroscope<br/>Github Link</a></p>
+   </div>
+   
+<!-- /*><><><><><><><><><><><><>  CONTENT  <><><><><><><><><><><*/ -->
+    <div class="main_content">
+    
+    <p><em>(Explanation still in progress. Updates soon!)</em></p>
     
     <h2> Goal </h2>
     <p> How can I use my phone's camera to identify an element based on its spectrum? </p>
+    
+    
+    <h2> Introduction </h2>
+    <p> A spectroscope breaks apart the light from an object into separate wavelengths. Because different objects have unique spectral "fingerprints", knowing what wavelengths of light come from that object can teach is about the object. For example, astronomers use the spectra of distant stars and galaxies to determine what they are made of and how fast and in what direction they are moving.</p>
+
+    <p> In the spring of 2016 I was fortunate enought to observe a ten-or-so-times per lifetime transit of Mercury. While sharing the event with my physics classes (Click <a href = "backstory.html" style="color:red"> here </a> for the backstory) I started to wonder if I could use my own smartphone camera to build a spectroscope. Afterall, the cameras that astronomers use to capture pictures of the sky are built with the same technology as the cameras in our smartphones.</p>
+    
     
     <h2> Steps </h2>
     <ol> 
         <li> <a href = "#build">Build the phone attachment</a></li>
         <li> <a href = "#picture">Take the picture</a></li>
-        <li> <a href = "#straighten">Straighten the curve (Not an actual step. Click <a class="nav" href="straighten.html">here</a> for a not-very-interesting side-track)</a></li>
+        <li> Straighten the curve (Not an actual step. Click <a class="nav" href="straighten.html" style="color:red">here</a> for an interesting sidetrack)</a></li>
         <li> <a href = "#histogram">Make a histogram </a></li>
         <li> <a href = "#lasers">Calibrate the data </a></li>
 
@@ -34,7 +64,7 @@
 
 
 
-<h2 id="build"> Step 1: Build the Spectroscope </h2>
+<h2 id="build"> Step 1: Build the Phone Attachment </h2>
     <p> I based my design off the example from MIT Open Courses, and modified it to fit my phone. </p>
     <p> I found an ugly magenta phone case in a bargin bin for $3. With a bit of (unnecessary) spray paint, I converted it to a more reasonable and boring black. </p>
     <p> I cut up a small piece of difraction grating, found in my classroom but also avaible online for cheap. Or you could do what MIT recommends and cut up a CD, although if you're like me you would have to go out a buy a CD to cut up. Where's AOL when we need them? </p>
@@ -44,7 +74,7 @@
 
 
 
-<h2 id="picture"> Step 2: Take the picture </h2>
+<h2 id="picture"> Step 2: Take the Picture </h2>
         <p> I have a massive advantage as a physics teacher, because I have
         access to the glowing tubes we use when investigating the
         electromagnetic spectrum. </p>
@@ -66,30 +96,8 @@
         <p> Here's what the raw data looked like: </p>
         <img class="displayed" src="spectroscope/1_OriginalTiffFile.png">
     
-        
-<!--
-    <h2 id="straighten"> Straighten the Data </h2>
-        <p> You probably noticed that the lines above are curved and
-        wondered what I'm going to do about that. The answer turns out to be
-        "not a darn thing". </p>
-        <p> I did manage to straighten out the picture, and I had a good
-        time doing it. First I had to convert the picture to an array
-        (technically a list of lists, I think). Then I found the maximum
-        value for each row of data and fit a parabola to the data (assuming
-        that the data is quadratic).
-        </p>
-        <p> Using the line of best fit, I created a scale factor for each
-        row to shorten each row down to the same length as the middle row. </p>
-        <p> The end result looked like this: </p>
-        <img class="displayed" src="Straight.png">
-        <p> So straight! </p>
-        <p> Alas, the actual data from the straightened picture was worse
-        than just taking data from the middle of the unstraightened pic. So
-        it goes. </p>
--->
 
-
-<h2 id="histogram"> Step 3: Make a Historgram </h2>
+<h2 id="histogram"> Step 4: Make a Histogram </h2>
 
 
         <p> There are a few steps to get from the raw data to a histogram </p>
@@ -144,7 +152,7 @@
         <h3> Find the center </h3>
         <p> The data shows a bright line down the center flanked by to roughly symmetrical sets of data. That vertical central band should be in the center of the photo, but no guarentees. It'd be better to find the center ourselves. </p>
         
-        <p> I did this by first finding the maximum value of the data set. Because the central bena could have been lopsided, I then found the points two thirds from the top to the left and right, and took the average of their positions </p>
+        <p> I did this by first finding the maximum value of the data set. Because the central band could have been lopsided, I then found the points two thirds from the top to the left and right, and took the average of their positions. </p>
         
         <div class="codeBox"><code><pre>
         def findCenter(data):	
@@ -212,11 +220,12 @@
             
         </code></pre></div>
 
-    <h2 id="calibrate"> Calibrate the Data </h2>
+<h2 id="calibrate"> Step 5: Calibrate the Data </h2>
         <h4 id="lasers"> Convert Pixel Positon to Wavelength </h4>
 
+        <p> <em>(Code exists, but the explanation is still in progress) </em></p>
   
 
-
+    </div>
     </div>   
     </body>    

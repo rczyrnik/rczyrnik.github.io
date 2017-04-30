@@ -1,7 +1,51 @@
+/*><><><><><><><><><><><><> SITE LAYOUT <><><><><><><><><><><*/
+.header {
+    border-bottom: 2px solid;
+    text-align: center;
+    color: Black;
+}
 
+.navbar {
+    border-bottom: 2px solid;
+    height: 1.7em;
+    padding-top: .2em;
+    margin-top: 0em;
+
+}
+
+.main_content {
+    left: 100pt;
+    right: 100pt;
+    margin: 1em 12em 0em 12em;
+    min-width: 40em;
+}
+
+.home_button {
+    position: absolute;
+    right: 10px;
+    margin-right: 18px;
+}
+
+.link_box {
+    width: 8em;
+    border: 2px solid;
+    border-radius: 1em;
+    position: fixed;
+    top: 10em;
+    right: 3em;
+}
+
+.link_box p {
+    text-align: center;
+    padding: .5em 0em .5em 0em;
+    margin: 0em;
+}
+
+/*><><><><><><><><><><><><> EVERYTHING <><><><><><><><><><><*/
 body {
     background-color: white;
     margin: 20pt;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
 }
 
 h1 {
@@ -10,15 +54,54 @@ h1 {
     }
 
 h2 {
-    font-family: sans-serif;
-    }
+    font-size: 18pt;
+    padding: 1em 0em 0em 0em;
+    margin: 0em;
+}
 
-/* I like justified text */
+h3 {
+    font-size: 18pt;
+    padding: 1em 0em 0em 0em;
+    margin: 0em;
+}
+
 p {
-    text-align: justify;
-    }
+    font-family: Arial, Helvetica, sans-serif;
+    padding: .5em 0em .5em 0em;
+    margin: 0em;
+}
 
-/* each of the project boxes on the front page */
+a {
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    table-layout:fixed;
+}
+
+td {
+    vertical-align: text-top;
+    padding: 1em;
+}
+
+ol {
+    font-size: 12pt;
+}
+/*><><><><><><><><><><><><> BUTTON BOOP <><><><><><><><><><><*/
+.screenshot_iPhone {
+    width: 12em
+}
+
+/*><><><><><><><><><><><><> SPECTROSCOPE <><><><><><><><><><><*/
+.codeBox {
+    background-color: lightgrey;
+    width: 500pt;
+    /*margin-right: 10pt;*/
+}
+
+
+/*><><><><><><><><><><><><> INDEX <><><><><><><><><><><*/
 #subcontent {
     font-size: 13pt;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -26,8 +109,8 @@ p {
     text-align: justify;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
-    padding-bottom: 80pt;
+/*    position: relative;*/
+    padding-bottom: 60pt;
 }
 
 /* mini projects */
@@ -38,7 +121,7 @@ p {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20pt;
-    position: relative;
+/*    position: relative;*/
     padding: 20px;
     
 }   
@@ -67,22 +150,9 @@ IMG.screenshot {
     margin-right: auto;
 }
 
-/* Head of each webpage */
-#header {
-    font-family: Arial;
-    border-bottom: 2px solid; 
-    text-align: center;
-    color: Black;
-}
 
-/* basic site layout has content in the middle
-    with white space on sides */
-#content {
-    left: 100pt;
-    right: 100pt;
-    float: none;
-    margin: 0 auto;
-}
+
+
 
 
 /* project photo (maybe should be renamed?) */
@@ -105,21 +175,13 @@ IMG.screenshot {
     font-size: 18pt;
     }
 
-/* links should (generally) not look like links */
-a {
-    text-decoration: none;
-    }
 
-/* Home Page Button */
-#button {
-    position: absolute;
-    right: 10px;
-    margin-right: 18px;
-}
+
+
 
 /* Boxes for my background story */
 #BackgroundBox {
-    width: 300pt;
+    width: 500pt;
     margin-right: auto;
     margin-left: auto;
     background-color: #87CEFA;
@@ -130,8 +192,8 @@ a {
     font-size: 12pt;
 }
 
-.codeBox {
-    background-color: lightgrey;
-    width: 500pt;
-    /*margin-right: 10pt;*/
-    }
+#BackgroundBox img {
+    width: 100%
+}
+
+
