@@ -15,45 +15,45 @@
         </a></div>
         <h1> Cell Phone Spectroscope </h1>
     </div>
-   
-   <!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
-   <div class="navbar">
-       <table>
-           <tr>
-               <th><a href="index.html">Introduction</a></th>
-               <th><a href="buttonBoop.html">Button Boop</a></th>
-               <th><a href="spectroscope.html">Spectroscope</a></th>
-               <th><a href="miniLearning.html">Short Projects</a></th>
-               <th><a href="firstWebsite/MFW_FrontPage.html">Web Design</a></th>
-              <th><a href="summerBlog.html">Summer Blog</a></th>
-           </tr>
-       </table>
-   </div>
-   
-   
-   
+
+    <!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
+    <div class="navbar">
+        <table>
+            <tr>
+                <th><a href="index.html">Introduction</a></th>
+                <th><a href="calculators.html">Calculators</a></th>
+                <th><a href="camera.html">Camera</a></th>
+                <th><a href="spectroscope.html">Spectroscope</a></th>
+                <th><a href="shortprojects.html">Short Projects</a></th>
+                <th><a href="firstWebsite/MFW_FrontPage.html">First Website</a></th>
+            </tr>
+        </table>
+    </div>
+
+
+
    <!--/*><><><><><><><><><><><><>  LINK BOX  <><><><><><><><><><><*/-->
    <div class="link_box">
        <p><a href="https://github.com/rczyrnik/iPhoneSpectroscope">Spectroscope<br/>Github Link</a></p>
    </div>
-   
+
 <!-- /*><><><><><><><><><><><><>  CONTENT  <><><><><><><><><><><*/ -->
     <div class="main_content">
-    
-    <p><em>(Explanation still in progress. Updates soon!)</em></p>
-    
+
+    <p><em>(Explanation still in progress. Updates soon?)</em></p>
+
     <h2> Goal </h2>
     <p> How can I use my phone's camera to identify an element based on its spectrum? </p>
-    
-    
+
+
     <h2> Introduction </h2>
     <p> A spectroscope breaks apart the light from an object into separate wavelengths. Because different objects have unique spectral "fingerprints", knowing what wavelengths of light come from that object can teach is about the object. For example, astronomers use the spectra of distant stars and galaxies to determine what they are made of and how fast and in what direction they are moving.</p>
 
     <p> In the spring of 2016 I was fortunate enought to observe a ten-or-so-times per lifetime transit of Mercury. While sharing the event with my physics classes (Click <a href = "backstory.html" style="color:red"> here </a> for the backstory) I started to wonder if I could use my own smartphone camera to build a spectroscope. Afterall, the cameras that astronomers use to capture pictures of the sky are built with the same technology as the cameras in our smartphones.</p>
-    
-    
+
+
     <h2> Steps </h2>
-    <ol> 
+    <ol>
         <li> <a href = "#build">Build the phone attachment</a></li>
         <li> <a href = "#picture">Take the picture</a></li>
         <li> Straighten the curve (Not an actual step. Click <a class="nav" href="straighten.html" style="color:red">here</a> for an interesting sidetrack)</a></li>
@@ -95,30 +95,30 @@
         pictures as tif files. </p>
         <p> Here's what the raw data looked like: </p>
         <img class="displayed" src="spectroscope/1_OriginalTiffFile.png">
-    
+
 
 <h2 id="histogram"> Step 4: Make a Histogram </h2>
 
 
         <p> There are a few steps to get from the raw data to a histogram </p>
-        
-        
+
+
         <h3> Read in the data </h3>
         <p> To read in the data I used a python module called "Pillow" </p>
         <div class="codeBox"><pre><code>
         from PIL import Image
-        
+
         def readImage(element):
-            tiff = "tif/Element" + str(element)  + ".tif"    
+            tiff = "tif/Element" + str(element)  + ".tif"
             img = Image.open(tiff)
             return img
         </code></pre></div>
-        
+
         <p> At this point the data just looks like the original picture: </p>
         <img class="displayed" src="spectroscope/1_OriginalTiffFile.png">
-            
+
         <h3> Crop the image and convert to grayscale </h3>
-      
+
         <p> You probably noticed that the image was curved. My first though was to straighten out the curve, assuming the shape was a parabola. This was a lot of fun to do, but ultimately resulted in data that was not as nice as if I just ignored the curve and cropped from the middle. </p>
         <div class="codeBox"><pre><code>
         def cropImage(img, CropHeight):
@@ -128,8 +128,8 @@
             return imgage
         </code></pre></div>
         <img class="displayed" src="spectroscope/2_CroppedAndGrayscale.png">
-            
-        
+
+
         <h3> Flatten the image </h3>
         <p> The goal here was to turn my two dimensional array into a single dimension of data. I did this by summing up all the data in each row (see image). </p>
         <img src="spectroscope/Step2.png" width=500px>
@@ -151,11 +151,11 @@
 
         <h3> Find the center </h3>
         <p> The data shows a bright line down the center flanked by to roughly symmetrical sets of data. That vertical central band should be in the center of the photo, but no guarentees. It'd be better to find the center ourselves. </p>
-        
+
         <p> I did this by first finding the maximum value of the data set. Because the central band could have been lopsided, I then found the points two thirds from the top to the left and right, and took the average of their positions. </p>
-        
+
         <div class="codeBox"><code><pre>
-        def findCenter(data):	
+        def findCenter(data):
             maximum = 0    # maximum value
             maximum_x = 0  # x position of maximum value
 
@@ -178,7 +178,7 @@
 
         <h3> Crop the data to visible wavelengths </h3>
         <p> Now that we have the center, we can crop out only the part of the picture containing visible light. I could have used the data to the left or the right, but I chose the data to the right. Roughly speaking, the visible wavelengths begin about 500 pixels from the central bright line, and end about 1500 pixels from it. </p>
-        
+
         <img src="spectroscope/4_Cropped.png" width=500px>
         <div class="codeBox"><pre><code>
         def cropData(data, center, start, end):
@@ -191,7 +191,7 @@
 
         <h3> Smooth out the data to reduce noise </h3>
         <img src="spectroscope/5_Smoothed.png" width=500px>
-        
+
         <div class="codeBox"><pre><code>
         def smoothData(data, times):
             for i in range(0, times):
@@ -202,9 +202,9 @@
             return data
         </code></pre></div>
 
-        
+
         <h3> Find the peaks </h3>
-        
+
         <div class="codeBox"><pre><code>
         def findPeaks(data):
             peakPosition = []
@@ -216,16 +216,16 @@
                     peakHeight = peakHeight+[data[x]]
                     peakPosition = peakPosition+[x]
             return (peakPosition,peakHeight)
-            
-            
+
+
         </code></pre></div>
 
 <h2 id="calibrate"> Step 5: Calibrate the Data </h2>
         <h4 id="lasers"> Convert Pixel Positon to Wavelength </h4>
 
         <p> <em>(Code exists, but the explanation is still in progress) </em></p>
-  
+
 
     </div>
-    </div>   
-    </body>    
+    </div>
+    </body>
