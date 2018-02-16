@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
+        <title> Price Prediction </title>
+    </head>
+
+    <body>
+
+<!--/*><><><><><><><><><><><><>  HEADER  <><><><><><><><><><><*/-->
+    <div class="header">
+        <div class="home_button"><a class="nav" href="index.html">
+            <img src="home.png" width="60pt">
+        </a></div>
+        <h1> Price Prediction </h1>
+    </div>
+
+    <!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
+    <div class="navbar">
+        <table>
+            <tr>
+                <th><a href="index.html">Introduction</a></th>
+                <th><a href="calculators.html">Calculators</a></th>
+                <th><a href="camera.html">Camera</a></th>
+                <th><a href="spectroscope.html">Spectroscope</a></th>
+                <th><a href="shortprojects.html">Short Projects</a></th>
+                <th><a href="firstWebsite/MFW_FrontPage.html">First Website</a></th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="main_content">
+
+        <div style="width:100%; font-size:80%; text-align:center;">
+          <img src="caseStudies/how_much_is_my_tractor_worth.png"
+                alt="alternate text"
+                width="80%"
+                height="80%"
+                />
+                <br >
+          
+        </div>
+
+        <h1> Goal </h1>
+
+        <p> Use previous sale data to predict the price of heavy
+          equiptment sold at auction. </p>
+
+        <h2> Step 0: The Background Stuff </h2>
+        <p> I wouldn't want to lose your interest with background imports and functions,
+        but you can head over here (hyperlink forthcoming) for more details.
+        </p>
+
+
+        <h2> Step 1: Get Average Sale Price By Model </h2>
+        <p>
+          <strong> Here's where things get interesting! </strong> We reasoned
+          that the
+          best predictor of price would be the price of previous items. So if I
+          wanted to know the price of a pinecone, it would be
+          helpful to know that two previous pinecones sold for $4 and $5.
+        </p>
+        <p>
+          To implement this strategy, I create a new table that is indexed
+          by model id and has columns of "SalePrice", "Counts", and "AvgPrice".
+        </p>
+        <p> I can then use this table to look up the average sale price by model
+          id.
+        </p>
+
+        <div class="codeBox"><pre><code>
+          train_df['Counts'] = 1
+          avg_prices_df = train_df[['ModelID','SalePrice','Counts']].groupby('ModelID').sum()
+          avg_prices_df['AvgPrice'] = (avg_prices_df.SalePrice / avg_prices_df.Counts).round(2)
+          avg_prices_df.head()
+        </code></pre></div>
+
+        <img class = "displayed"
+              src="caseStudies/avg_prices_df.png"
+              alt="Average Price Table"
+              style="width:300px;height:400px;">
+
+        <p>
+          Quick interpretation: The first row shows that if we consider items
+          with a model id of "28", thirty two were sold with total sales of $498,250, or about
+          $15,570 per item. So if I were to predict the price of another item with
+          a model id of 28, $15,570 is not a bad guess.
+        </p>
+
+        <h2> Step 2: Create A Function That Predicts Sale Price By Simple Lookup </h2>
+        <p>
+          In order to make predictions, we need a function that looks up the predicted price.
+          Just in case an unseen item shows up in the test set, we also need to calculate the
+          average price accross all items.
+        </p>
+        <p>
+          (It would be interesting to turn this into a dictionary to speed lookup time).
+        </p>
+
+        <div class="codeBox"><pre><code>
+          def predict_price(id):
+              try: return avg_prices_df.loc[id]['AvgPrice']
+              except: return avg_sale_price
+
+          avg_sale_price = train_df.SalePrice.sum()/len(train_df)
+        </code></pre></div>
+
+        <h2> Step 3: Use The Function To Predict Prices in the Test Data </h2>
+        <p>
+          The final step - use the "predict prices" function to predict prices
+          of unseen data, and score that model with the actual prices.
+        </p>
+
+        <p>
+          This model earned a RMLSE of 0.3209. The lower, the better, and for
+          comparison, the next lowest score was around .6, nearly twice my result.
+        </p>
+
+        <div class="codeBox"><pre><code>
+          test_predicted_prices = test_df.ModelID.apply(predict_price)
+          score_gtap = score(test_predicted_prices, test_actual_prices)
+          print("The guess-the-average-price model has a RMLSE of {:.4}.".format(score_gtap))
+        </code></pre></div>
+
+
+        <p>
+          Ta-da!
+        </p>
+        <p>
+          Unfortuantely, this solution wasn't strictly legal. By the terms of
+          the competition, I was required to create a linear model. Luckily,
+          this wasn't hard to do once I had the average price lookup table and
+          function. Stay tuned for an explanation of how I did it.
+        </p>
+        <p>
+          At first I thought it was arbitrary that I had to contort my solution
+          to work within the constraints. If I could do it better with a simple
+          lookup, why go any further?
+        </p>
+        <p>
+          Now, however, I have two reasons why being able to reformat my solution
+          to work as a linear regression is potentially useful.
+        </p>
+        <p>
+          The first is that my results may be just a piece of a larger pipeline.
+          Perhaps someone downstream of me has code that only works when a model
+          is sent its way, and wouldn't know what to do with a function.
+        </p>
+        <p>
+          The second reason is that formating my results as a linear model gives
+          me the flexibility to consider other features, such as the age of the
+          equiptment. Afterall, there is a wide range of prices for any particular
+          model. In the time given we weren't able to make use of other features
+          such as equiptment age, but in the future that could be a very rich
+          avenue of study.
+        </p>
+
+        <h1> Summary </h1>
+        <p> I'm really proud that my method did so well, but I'm a little let down
+          that I didn't need to use even a simple model.
+        </p>
+        <p> When I talked to other people in the data sciency industry about
+          this project, they said my result weren't uncommon. Sometimes the
+          simplest models work best, and I learned that I should be wary of
+          throwing data at an advanced model without thinking through the
+          real effects under the surface.
+        </p>
+
+
+     </div>
+
+  </body>

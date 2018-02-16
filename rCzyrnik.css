@@ -45,30 +45,33 @@
 body {
     background-color: white;
     margin: 20pt;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
 }
 
 h1 {
     margin-top: 10px;
     margin-bottom: 10px;
+    font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     }
 
 h2 {
     font-size: 18pt;
     padding: 1em 0em 0em 0em;
     margin: 0em;
+    font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 h3 {
     font-size: 18pt;
     padding: 1em 0em 0em 0em;
     margin: 0em;
+    font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 p {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica;
     padding: .5em 0em .5em 0em;
     margin: 0em;
+    width: 100%;
 }
 
 a {
@@ -96,22 +99,54 @@ ol {
 /*><><><><><><><><><><><><> SPECTROSCOPE <><><><><><><><><><><*/
 .codeBox {
     background-color: lightgrey;
-    width: 500pt;
-    /*margin-right: 10pt;*/
+    width: 100%;
+}
+
+/*><><><><><><><><><><><><> INDEX: PROJECTS <><><><><><><><><><><*/
+.projects {
+  background-color: #C0C0C0;
+  margin-bottom: 50pt;
+  height: 150pt;
+}
+
+IMG.projects {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#projecttext {
+    color: black;
+    padding: 4px;
+    padding-top: 30px;
+    padding-right: 30px;
+    margin-left: 240px;
+    margin-right: 20px;
+
+}
+
+/*><><><><><><><><><><><><> INDEX: JUST FOR FUN <><><><><><><><><><*/
+.justforfun {
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 33%;
+    padding-bottom: 25%;
+    float: left;
+
+}
+
+IMG.justforfun {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
 }
 
 
-/*><><><><><><><><><><><><> INDEX <><><><><><><><><><><*/
-#subcontent {
-    font-size: 13pt;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    max-width: 500pt;
-    text-align: justify;
-    margin-left: auto;
-    margin-right: auto;
-/*    position: relative;*/
-    padding-bottom: 60pt;
-}
+/*><><><><><><><><><><><><> ???????????????? <><><><><><><><><><*/
+
+
 
 /* mini projects */
 #projectBox {
@@ -121,10 +156,9 @@ ol {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20pt;
-/*    position: relative;*/
     padding: 20px;
-    
-}   
+
+}
 
 /* Used once(?) in the spectroscope page */
 IMG.displayed {
@@ -143,6 +177,8 @@ IMG.projects {
     margin-left: auto;
     margin-right: auto;
 }
+
+
 /* For the screenshots on the Mini Learning page */
 IMG.screenshot {
     max-width: 400px;
@@ -157,9 +193,18 @@ IMG.screenshot {
 
 /* project photo (maybe should be renamed?) */
 #photo {
-    float: left;
+    /* float: left; */
     width: 200px
+    /* position: relative; */
+    text-align: center;
+    color: white;
 }
+
+/* .container {
+    position: relative;
+    text-align: center;
+    color: white;
+} */
 
 /* Title and description of projects */
 #text {
@@ -174,10 +219,6 @@ IMG.screenshot {
     font-family: Arial;
     font-size: 18pt;
     }
-
-
-
-
 
 /* Boxes for my background story */
 #BackgroundBox {
@@ -195,5 +236,3 @@ IMG.screenshot {
 #BackgroundBox img {
     width: 100%
 }
-
-
