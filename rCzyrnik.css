@@ -105,7 +105,7 @@ ol {
 /*><><><><><><><><><><><><> INDEX: PROJECTS <><><><><><><><><><><*/
 .projects {
   background-color: #C0C0C0;
-  margin-bottom: 50pt;
+  margin-bottom: 35pt;
   height: 150pt;
 }
 
@@ -122,29 +122,31 @@ IMG.projects {
     padding-right: 30px;
     margin-left: 240px;
     margin-right: 20px;
-
 }
 
 /*><><><><><><><><><><><><> INDEX: JUST FOR FUN <><><><><><><><><><*/
-.justforfun {
+DIV.justforfun {
+    background-color: #C0C0C0;
     position: relative;
-    text-align: center;
-    color: white;
-    width: 33%;
-    padding-bottom: 25%;
+    /* text-align: center;
+    color: white; */
+    width: 100%;
     float: left;
-
+    padding: 1%;
+    margin-bottom: 5%;
 }
 
 IMG.justforfun {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
+    width: 31%;
+    padding: 1%;
+
+    /* position: absolute; */
+    /* left: 0; */
 }
 
 
-/*><><><><><><><><><><><><> ???????????????? <><><><><><><><><><*/
+
+/*><><><><><><><><><><><><> OTHER STUFF <><><><><><><><><><*/
 
 
 
