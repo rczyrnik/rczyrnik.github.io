@@ -1,182 +1,148 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
-        <title> R Czyrnik Website </title>
-    </head>
+  <head>
+      <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
+      <title> R Czyrnik Website </title>
+  </head>
 
-    <body>
+  <body>
+    <!--/*><><><><><><><><><><><><>  HEADER  <><><><><><><><><><><*/-->
+    <h1 class="header"> REBECCA CZYRNIK </h1>
+    <!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
+    <div class="navbar">
+        <table>
+            <tr>
+                <th><a href="index.html">Introduction</a></th>
+                <th><a href="calculators.html">Calculators</a></th>
+                <th><a href="camera.html">Camera</a></th>
+                <th><a href="spectroscope.html">Spectroscope</a></th>
+                <th><a href="shortprojects.html">Short Projects</a></th>
+                <th><a href="firstWebsite/MFW_FrontPage.html">First Website</a></th>
+            </tr>
+        </table>
+    </div>
+    <!--/*><><><><><><><><><><><><>  CONTENT  <><><><><><><><><><><*/-->
+    <div class="main_content">
+      <h2> Introduction </h2>
+      <br/>
+      <img class="displayed" src="index/OhDeer.png">
+      <br/>
+      <p> Hello! I am a data scientist working out of Galvanize in San Francisco.
+        As a Connecticut native, I'm also settling into my first
+        snow-free winter, and learning to apreciate
+        t-shirt weather in November.
+      </p>
 
-        <div class="header">
-            <h1> REBECCA CZYRNIK </h1>
+      <p>  I put together this webpage to practice HTML and CSS.
+        I know it may be simple compared to profesionally-designed sites,
+        but it was made from scratch with love.
+        It is both a project and a repository for my projects,
+        which is pretty meta!
+        I hope you like it.
+      </p>
+
+      <p> In my previous life I was a high school physics teacher,
+        and my experiences in the classroom continue to inform my new life in data science.
+        Most directly, years in the classroom developed a passion in me for explaining difficult concepts
+        in a clear and simple manner to an audience with a wide range of backgrounds. I look forward
+        to transfering these skills to my work in data science, explaining results to people both within
+        and outside my specialty.
+      </p>
+
+
+      <p> I'd love to hear about what you like and don't like.
+        Presumably if you're reading this it's because you already know me,
+        so send me a line in the usual way!
+        If you don't know me, then what brought you here?
+        I want to know! You can find me at rczyrnik@gmail.com
+      </p>
+
+
+      <h2> Projects </h2>
+      <br/>
+
+
+
+
+      <div class="projects">
+        <div id="project_pic">
+          <img src="index/proj_frauddetection.png" style="height: 150pt;">
         </div>
-        <!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
-        <div class="navbar">
-            <table>
-                <tr>
-                    <th><a href="index.html">Introduction</a></th>
-                    <th><a href="calculators.html">Calculators</a></th>
-                    <th><a href="camera.html">Camera</a></th>
-                    <th><a href="spectroscope.html">Spectroscope</a></th>
-                    <th><a href="shortprojects.html">Short Projects</a></th>
-                    <th><a href="firstWebsite/MFW_FrontPage.html">First Website</a></th>
-                </tr>
-            </table>
+        <div id="project_text">
+          <h2> Detecting Fraud </h2>
+          <p> Using data from an e-commerce site, identify possible fraud
+            cases and build a flask app and web front-end to display results.
+          </p>
         </div>
-        <div class="main_content">
-            <h2> Introduction </h2>
-            <br/>
-            <img class="displayed" src="index/OhDeer.png">
-            <br/>
-            <div id="subcontent">
-            <p> Hello! I am a data scientist working out of Galvanize in San Francisco.
-              As a Connecticut native, I'm also settling into my first
-              snow-free winter, and learning to apreciate
-              t-shirt weather in November. </p>
+      </div>
 
-            <p>  I put together this webpage to practice HTML and CSS.
-              I know it may be simple compared to profesionally-designed sites,
-              but it was made from scratch with love.
-              It is both a project and a repository for my projects,
-              which is pretty meta!
-              I hope you like it.  </p>
+      <div class="projects">
+        <div id="project_pic">
+          <img src="index/proj_userengagement.png" style="height: 150pt;">
+        </div>
+        <div id="project_text">
+          <h2>User Engagement</h2>
+          <p>
+            TEXT HERE
+          </p>
+        </div>
+      </div>
 
-            <p> In my previous life I was a high school physics teacher,
-              and my experiences in the classroom continue to inform my new life in data science.
-              Most directly, years in the classroom developed a passion in me for explaining difficult concepts
-              in a clear and simple manner to an audience with a wide range of backgrounds. I look forward
-              to transfering these skills to my work in data science, explaining results to people both within
-              and outside my specialty. </p>
+      <div class="projects">
+        <div id="project_pic">
+          <img src="index/proj_ufosightings.png" style="height: 150pt;">
+        </div>
+        <div id="project_text">
+          <h2> UFO Sightings</h2>
+          <p>
+            TEXT HERE
+          </p>
+        </div>
+      </div>
 
+      <div class="projects">
+        <div id="project_pic">
+          <img src="index/proj_churnprediction.png" style="height: 150pt;">
+        </div>
+        <div id="project_text">
+          <h2>Churn Prediction</h2>
+          <p>
+            Investigate a dataset to better understand why users stop
+            using a ride sharing app, and build a model to
+            predict which users are most likely to leave.
+          </p>
+        </div>
+      </div>
 
-            <p> I'd love to hear about what you like and don't like.
-              Presumably if you're reading this it's because you already know me,
-              so send me a line in the usual way!
-              If you don't know me, then what brought you here?
-              I want to know! You can find me at rczyrnik@gmail.com </p>
-            </div>
-
-            <h2> Projects </h2>
-            <br/>
-            <div class="projects">
-                <!-- <a href="proj_frauddetection.html"> -->
-
-                <div id="photo">
-                    <img class="projects" src="index/frauddetection.png">
-                </div>
-
-                <div id="projecttext">
-
-                    <div id="title">
-                        Fraud Detection
-                    </div>
-
-                    <p>
-                      Using data from an e-commerce site, identify possible
-                      fraud cases and
-                      build a flask app and web front-end to display results.
-                    </p>
-                </div>
-                </a>
-            </div>
-
-            <div class="projects">
-                <!-- <a href="proj_userengagement.html"> -->
-
-                <div id="photo">
-                    <img class="projects" src="index/userengagement.png">
-                </div>
-
-                <div id="projecttext">
-
-                    <div id="title">
-                        User Engagement
-                    </div>
-
-                    <p>
-                      TEXT HERE
-                    </p>
-                </div>
-                </a>
-            </div>
-
-            <div class="projects">
-                <!-- <a href="proj_ufosightings.html"> -->
-
-                <div id="photo">
-                    <img class="projects" src="index/ufosightings.png">
-                </div>
-
-                <div id="projecttext">
-                    <div id="title">
-                        UFO Sightings
-                    </div>
-
-                    <p>
-                      TEXT HERE
-                    </p>
-                </div>
-                </a>
-            </div>
-
-            <div class="projects">
-                <!-- <a href="proj_churnprediction.html"> -->
-
-                <div id="photo">
-                    <img class="projects" src="index/churnprediction.png">
-                </div>
-
-                <div id="projecttext">
-                    <div id="title">
-                        Churn Prediction
-                    </div>
-
-                    <p>
-                      Investigate a dataset to better understand why users stop
-                      using a ride sharing app, and build a model to
-                      predict which users are most likely to leave.
-                    </p>
-                </div>
-                </a>
-            </div>
-
-            <div class="projects">
-                <a href="proj_priceprediction.html">
-
-                <div id="photo">
-                    <img class="projects" src="index/priceprediction_index.png">
-                </div>
-
-                <div id="projecttext">
-                    <div id="title">
-                        Price Prediction
-                    </div>
-
-                    <p>
-                      Predict the sale price of a
-                      particular piece of heavy equipment at auction based on
-                      its usage, equipment type, and configuration.
-
-                    </p>
-                </div>
-                </a>
-            </div>
-
-
+      <div class="projects">
+        <a href="proj_priceprediction.html">
+        <div id="project_pic">
+          <img src="index/proj_priceprediction.png" style="height: 150pt;">
+        </div>
+        <div id="project_text">
+          <h2>Price Prediction</h2>
+          <p>
+            Predict the sale price of a
+            particular piece of heavy equipment at auction based on
+            its usage, equipment type, and configuration.
+          </p>
+        </div>
+        </a>
+      </div>
 
 
     <h2> Just For Fun </h2>
     <br/>
     <div class="justforfun">
 
-        <a href="fun_calculators.html">
-          <img class="justforfun" src="index/fun_calculators.png">
-        </a>
+      <a href="fun_calculators.html">
+      <img class="justforfun" src="index/fun_calculators.png">
+      </a>
 
-        <a href="fun_camera.html">
-         <img class="justforfun" src="index/fun_camera.png">
-        </a>
+      <a href="fun_camera.html">
+      <img class="justforfun" src="index/fun_camera.png">
+      </a>
 
       <a href="fun_buttonBoop.html">
       <img class="justforfun" src="index/fun_doggames.png">
@@ -194,140 +160,10 @@
       <img class="justforfun" src="index/fun_frontpage.png">
       </a>
     </div>
+  </div>
+</body>
 
 
-
-
-
-<!--
-            <div id="subcontent">
-                <a href="calculators.html">
-
-                <div id="photo">
-                    <img class="projects" src="index/calculators.jpg">
-                </div>
-
-                <div id="text">
-                    <div id="title">
-                        Calculators
-                    </div>
-
-                    <p> I like calculators, especially my trusty TI-89 which has
-                      carried me through thick and thin.
-                      But the calculators I use, like the TI-89 are really
-                      complicated, and I wondered what they would look like stripped down
-                      to their most basic parts.
-                    </p>
-                </div>
-                </a>
-            </div>
-
-            <div id="subcontent">
-                <a href="camera.html">
-
-                <div id="photo">
-                    <img class="projects" src="camera/camera.png">
-                </div>
-
-                <div id="text">
-                    <div id="title">
-                        Camera
-                    </div>
-
-                    <p>  Continuing with the theme of creating for myself crude versions
-                      of technology already perfected by the professionals, I built a
-                      black-and-white camera.
-                      I used photo-sensitive paper to take a picture of the brightest object
-                      I could think of, the sun.
-                    </p>
-                </div>
-                </a>
-            </div>
-
-
-            <div id="subcontent">
-                <a href="buttonBoop.html">
-
-                <div id="photo">
-                    <img class="projects" src="index/ButtonBoop.png">
-                </div>
-
-                <div id="text">
-                    <div id="title">
-                        Dog Games
-                    </div>
-
-                    <p> I often feel bad that I'm not properly educating my dog,
-                    teaching him letters and numbers and shapes and colors.
-                    Hopefully this app will change that! At the moment, the game I developed dispenses trests
-                    when the dog/cat/wereworlf hits the blue button on an iDevice's screen.
-                    </p>
-                </div>
-                </a>
-            </div>
-
-            <div id="subcontent">
-                <a href="spectroscope.html">
-
-                <div id="photo">
-                    <img class="projects" src="index/Spectroscope.JPG">
-                </div>
-
-                <div id="text">
-                    <div id="title">
-                        Cell Phone Spectroscope
-                    </div>
-
-                    <p> Our cellphone cameras capture images using technology
-                    very similar to that found in space telescopes.
-                    This journey began with an attempt to plot the black body
-                    radiation from our sun and will hopefully end with a
-                    program that identifies a gas based on its spectral lines.
-                    </p>
-                </div>
-                </a>
-            </div>
-
-            <div id="subcontent">
-                <a href="miniLearning.html">
-
-                <div id="photo">
-                    <img class="projects" src="index/Scrabble.png">
-                </div>
-
-                <div id="text">
-                    <div id="title">
-                        Short Projects
-                    </div>
-
-                    <p> When you first start to learn programming there are all sorts
-                    or mini projects they suggest you try, like finding all the
-                    primes up to ten thousand, or creating a scrabble (TM?) word
-                    finder. Here are some of my activities </p>
-                </div>
-            </div>
-
-            <div id="subcontent">
-                <a href="firstWebsite/MFW_FrontPage.html">
-
-                <div id="photo">
-                    <img class="projects" src="index/MFW_FrontPage.png">
-                </div>
-
-                <div id="text">
-                    <div id="title">
-                        Personal Website
-                    </div>
-
-                    <p> Inspired by the great comedian Weird Al Yankovic, my first website was "a homepage
-                    for my dog" (Yankovic, 2006).  I made it when I was learning html and css. If you can
-                    see past the garish colors, I think you'll notice some pretty cute dog photos.</p>
-                </div>
-                </a>
-            </div> -->
-
-
-
-        </div>
-      </div>
-    </body>
+<!-- <p> Inspired by the great comedian Weird Al Yankovic, my first website was "a homepage
+for my dog" (Yankovic, 2006).  I made it when I was learning html and css. If you can
+see past the garish colors, I think you'll notice some pretty cute dog photos.</p> -->
