@@ -109,16 +109,18 @@ IMG.displayed {
 .projects {
   background-color: #C0C0C0;
   margin-bottom: 35pt;
+  padding-right: 35pt;
   height: 150pt;
 }
 
 #project_pic {
   float: left;
-  width: 250px;
+  width: 20%;
 }
 
 #project_text {
-  width: 90%;
+  float: right;
+  width: 70%;
 }
 
 /*><><><><><><><><><><><><><><> INDEX: JUST FOR FUN <><><><><><><><><><><><><*/
