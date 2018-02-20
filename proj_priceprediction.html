@@ -34,7 +34,7 @@
     <div class="main_content">
 
         <div style="width:100%; font-size:80%; text-align:center;">
-          <img src="caseStudies/how_much_is_my_tractor_worth.png"
+          <img src="caseStudies/price_how_much_is_my_tractor_worth.png"
                 alt="alternate text"
                 width="80%"
                 height="80%"
@@ -70,7 +70,7 @@
           id.
         </p>
 
-        <div class="codeBox"><pre><code>
+        <div><pre><code>
           train_df['Counts'] = 1
           avg_prices_df = train_df[['ModelID','SalePrice','Counts']].groupby('ModelID').sum()
           avg_prices_df['AvgPrice'] = (avg_prices_df.SalePrice / avg_prices_df.Counts).round(2)
@@ -78,7 +78,7 @@
         </code></pre></div>
 
         <img class = "displayed"
-              src="caseStudies/avg_prices_df.png"
+              src="caseStudies/price_avg_prices_df.png"
               alt="Average Price Table"
               style="width:300px;height:400px;">
 
@@ -99,7 +99,7 @@
           (It would be interesting to turn this into a dictionary to speed lookup time).
         </p>
 
-        <div class="codeBox"><pre><code>
+        <div><pre><code>
           def predict_price(id):
               try: return avg_prices_df.loc[id]['AvgPrice']
               except: return avg_sale_price
@@ -118,7 +118,7 @@
           comparison, the next lowest score was around .6, nearly twice my result.
         </p>
 
-        <div class="codeBox"><pre><code>
+        <div><pre><code>
           test_predicted_prices = test_df.ModelID.apply(predict_price)
           score_gtap = score(test_predicted_prices, test_actual_prices)
           print("The guess-the-average-price model has a RMLSE of {:.4}.".format(score_gtap))

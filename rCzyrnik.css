@@ -1,27 +1,33 @@
 /*><><><><><><><><><><><><> SITE LAYOUT <><><><><><><><><><><*/
 .header {
-    position: static;
+    position: fixed;
+    width: 100%;
+    background: white;
     text-align: center;
-    height: 40px;
+    height: 50px;
+    margin-top:-20px;
 }
 
 #home_button {
     /* position: absolute; */
     /* right: 10px; */
     margin-right: 18px;
+    margin-top: 16px;
     float: right;
     /* width: 10%; */
 }
 
 .navbar {
-    position: static;
+    position: fixed;
     background: #EEEEEE;
     border-top: 2px solid;
     border-bottom: 2px solid;
+    margin-top:30px;
     height: 1.7em;
 }
 
 .main_content {
+    padding-top: 80px;
     position: static;
     left: 100pt;
     right: 100pt;
@@ -96,10 +102,6 @@ ol {
 }
 
 /*><><><><><><><><><><><><> MULTIPLE PAGES <><><><><><><><><><><*/
-.codeBox {
-    background-color: lightgrey;
-    width: 100%;
-}
 
 IMG.displayed {
     display: block;
@@ -130,7 +132,6 @@ IMG.displayed {
 /*><><><><><><><><><><><><><><> INDEX: JUST FOR FUN <><><><><><><><><><><><><*/
 DIV.justforfun {
     background-color: #C0C0C0;
-    position: relative;
     text-align: center;
     color: white;
     width: 100%;
