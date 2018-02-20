@@ -9,12 +9,9 @@
 }
 
 #home_button {
-    /* position: absolute; */
-    /* right: 10px; */
     margin-right: 18px;
     margin-top: 16px;
     float: right;
-    /* width: 10%; */
 }
 
 .navbar {
@@ -81,6 +78,7 @@ p {
     padding: .5em 0em .5em 0em;
     margin: 0em;
     width: 100%;
+    font-size: 13px;
 }
 
 a {
