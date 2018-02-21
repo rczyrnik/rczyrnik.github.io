@@ -41,11 +41,11 @@
               />
       </div>
 
-        <h1> GOAL </h1>
+        <h2> GOAL </h2>
 
         <p> Identify possible fraud for an online retailer. </p>
 
-        <h1> INTRODUCTION </h1>
+        <h2> INTRODUCTION </h2>
 
         <p> This was the last case study I did for Galvanize. We worked on it
           over the last two days of the course and presented in the afternoon
@@ -62,14 +62,14 @@
           to predict fraud.
         </p>
 
-        <h1> THE DATA </h1>
+        <h2> THE DATA </h2>
 
         <p> The training dataset is made of 14,337 events, of which 1288 are
           identified by the company as fraud (8.98%). There are
           44 columns of information about the event.
         </p>
 
-        <h1> DATA CLEANING </h1>
+        <h2> DATA CLEANING </h2>
 
 
         <p> Pandas has a great tool for reading Json files, so most of the data
@@ -102,9 +102,6 @@
           'quantity_total': 20}]
           </code></pre></div>
 
-        <p> With three ticket types at $25, $50, and $550, with
-         800, 100, and 20 available at each level.
-        </p>
 
         <p> To turn this into useful information, I wrote helper functions
           to calculate the total possible profit and the number of tickets for
@@ -135,7 +132,7 @@
             "average ticket price", and "average payout".
           </p>
 
-          <h1> BUILDING A SIMPLE MODEL </h1>
+          <h2> BUILDING A SIMPLE MODEL </h2>
 
           <p> Fittling a model was fairly straightforward. I split the data into
             train and test sets using sklearn's model selection "train_test_split".
@@ -157,7 +154,7 @@
           </p>
 
 
-          <h1> INVESTIGATING RESULTS </h1>
+          <h2> INVESTIGATING RESULTS </h2>
 
           <p> From my simple model, the most important features were:
           </p>

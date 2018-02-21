@@ -95,17 +95,18 @@
           Just in case an unseen item shows up in the test set, we also need to calculate the
           average price accross all items.
         </p>
+        
         <p>
-          (It would be interesting to turn this into a dictionary to speed lookup time).
+          (Would it be interesting to turn this into a dictionary to speed lookup time).
         </p>
 
-        <div><pre><code>
+        <pre><code>
           def predict_price(id):
               try: return avg_prices_df.loc[id]['AvgPrice']
               except: return avg_sale_price
 
           avg_sale_price = train_df.SalePrice.sum()/len(train_df)
-        </code></pre></div>
+        </code></pre>
 
         <h2> Step 3: Use The Function To Predict Prices in the Test Data </h2>
         <p>
@@ -113,24 +114,25 @@
           of unseen data, and score that model with the actual prices.
         </p>
 
-        <p>
-          This model earned a RMLSE of 0.3209. The lower, the better, and for
-          comparison, the next lowest score was around .6, nearly twice my result.
-        </p>
-
-        <div><pre><code>
+        <pre><code>
           test_predicted_prices = test_df.ModelID.apply(predict_price)
           score_gtap = score(test_predicted_prices, test_actual_prices)
           print("The guess-the-average-price model has a RMLSE of {:.4}.".format(score_gtap))
-        </code></pre></div>
-
+        </code></pre>
 
         <p>
-          Ta-da!
+          This model earned a RMLSE of 0.3209. For
+          comparison, the next lowest score was around .6, nearly twice my result.
+          <em>Hurrah!</em>
         </p>
+
+        <br/>
+        <br/>
         <p>
-          Unfortuantely, this solution wasn't strictly legal. By the terms of
-          the competition, I was required to create a linear model. Luckily,
+          <strong>Unfortuantely, this solution wasn't strictly legal. </strong>
+
+          By the terms of the competition, I was required to create a linear
+          model. Luckily,
           this wasn't hard to do once I had the average price lookup table and
           function. Stay tuned for an explanation of how I did it.
         </p>
@@ -158,11 +160,11 @@
         </p>
 
         <h1> Summary </h1>
-        <p> I'm really proud that my method did so well, but I'm a little let down
-          that I didn't need to use even a simple model.
+        <p> I was really proud that my method did so well, but also let down
+          that I didn't need to use the linear regression skills I had been studying.
         </p>
         <p> When I talked to other people in the data sciency industry about
-          this project, they said my result weren't uncommon. Sometimes the
+          this project, they said my situation wasn't uncommon. Sometimes the
           simplest models work best, and I learned that I should be wary of
           throwing data at an advanced model without thinking through the
           real effects under the surface.
