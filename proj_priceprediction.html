@@ -42,8 +42,7 @@
 
         </div>
 
-        <h1> Goal </h1>
-
+        <h2> Goal </h2>
         <p> Use previous sale data to predict the price of heavy
           equiptment sold at auction. </p>
 
@@ -70,16 +69,16 @@
         </p>
 
         <div><pre><code>
-          train_df['Counts'] = 1
-          avg_prices_df = train_df[['ModelID','SalePrice','Counts']].groupby('ModelID').sum()
-          avg_prices_df['AvgPrice'] = (avg_prices_df.SalePrice / avg_prices_df.Counts).round(2)
-          avg_prices_df.head()
+    train_df['Counts'] = 1
+    avg_prices_df = train_df[['ModelID','SalePrice','Counts']].groupby('ModelID').sum()
+    avg_prices_df['AvgPrice'] = (avg_prices_df.SalePrice / avg_prices_df.Counts).round(2)
+    avg_prices_df.head()
         </code></pre></div>
 
         <img class = "displayed"
               src="casestudies/price_avg_prices_df.png"
               alt="Average Price Table"
-              style="width:300px;height:400px;">
+              style="width:280px;height:340px;">
 
         <p>
           Quick interpretation: The first row shows that if we consider items
@@ -96,15 +95,15 @@
         </p>
 
         <p>
-          (Would it be interesting to turn this into a dictionary to speed lookup time).
+          (Would it be interesting to turn this into a dictionary to speed lookup time?).
         </p>
 
         <pre><code>
-          def predict_price(id):
-              try: return avg_prices_df.loc[id]['AvgPrice']
-              except: return avg_sale_price
+    def predict_price(id):
+        try: return avg_prices_df.loc[id]['AvgPrice']
+        except: return avg_sale_price
 
-          avg_sale_price = train_df.SalePrice.sum()/len(train_df)
+    avg_sale_price = train_df.SalePrice.sum()/len(train_df)
         </code></pre>
 
         <h2> Step 3: Use The Function To Predict Prices in the Test Data </h2>
@@ -114,9 +113,9 @@
         </p>
 
         <pre><code>
-          test_predicted_prices = test_df.ModelID.apply(predict_price)
-          score_gtap = score(test_predicted_prices, test_actual_prices)
-          print("The guess-the-average-price model has a RMLSE of {:.4}.".format(score_gtap))
+    test_predicted_prices = test_df.ModelID.apply(predict_price)
+    score_gtap = score(test_predicted_prices, test_actual_prices)
+    print("The guess-the-average-price model has a RMLSE of {:.4}.".format(score_gtap))
         </code></pre>
 
         <p>

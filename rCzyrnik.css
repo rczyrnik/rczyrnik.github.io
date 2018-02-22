@@ -172,6 +172,10 @@ IMG.displayed {
   width: calc(100% - 200pt)
 }
 
+pre {
+  /* background-color: pink; */
+  overflow:auto;
+}
 /*><><><><><><><><><><><><><><> INDEX: JUST FOR FUN <><><><><><><><><><><><><*/
 DIV.justforfun {
     background-color: #C0C0C0;

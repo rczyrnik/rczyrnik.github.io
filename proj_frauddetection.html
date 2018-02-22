@@ -82,7 +82,7 @@
        </p>
 
         <div><pre><code>
-        df = pd.read_json('/data/data.json')
+    df = pd.read_json('/data/data.json')
         </code></pre></div>
 
         <p> There were a couple columns that had nested json, such as "ticket_types".
@@ -90,21 +90,21 @@
        </p>
 
         <div><pre><code>
-          [{'availability': 1,
-          'cost': 25.0,
-          'event_id': 527017,
-          'quantity_sold': 0,
-          'quantity_total': 800},
-          {'availability': 1,
-          'cost': 50.0,
-          'event_id': 527017,
-          'quantity_sold': 0,
-          'quantity_total': 100},
-          {'availability': 1,
-          'cost': 550.0,
-          'event_id': 527017,
-          'quantity_sold': 0,
-          'quantity_total': 20}]
+    [{'availability': 1,
+    'cost': 25.0,
+    'event_id': 527017,
+    'quantity_sold': 0,
+    'quantity_total': 800},
+    {'availability': 1,
+    'cost': 50.0,
+    'event_id': 527017,
+    'quantity_sold': 0,
+    'quantity_total': 100},
+    {'availability': 1,
+    'cost': 550.0,
+    'event_id': 527017,
+    'quantity_sold': 0,
+    'quantity_total': 20}]
           </code></pre></div>
 
 
@@ -116,15 +116,15 @@
 
 
         <div><pre><code>
-          def get_max_profit(row):
-              return sum(level['cost']*level['quantity_total'] for level in row)
-          def get_num_tickets(row):
-              return sum(level['quantity_total'] for level in row)
+    def get_max_profit(row):
+        return sum(level['cost']*level['quantity_total'] for level in row)
+    def get_num_tickets(row):
+        return sum(level['quantity_total'] for level in row)
 
-          df['ticket_types_num_types'] = df.ticket_types.apply(len)
-          df['ticket_types_max_profit'] = df.ticket_types.apply(get_max_profit)
-          df['ticket_types_num_tickets'] = df.ticket_types.apply(get_num_tickets)
-          df['ticket_types_avg_price'] = df.ticket_types_max_profit/df.ticket_types_num_tickets
+    df['ticket_types_num_types'] = df.ticket_types.apply(len)
+    df['ticket_types_max_profit'] = df.ticket_types.apply(get_max_profit)
+    df['ticket_types_num_tickets'] = df.ticket_types.apply(get_num_tickets)
+    df['ticket_types_avg_price'] = df.ticket_types_max_profit/df.ticket_types_num_tickets
           </code></pre></div>
 
           <p> I used a similar method to get information about previous
