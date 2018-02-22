@@ -19,7 +19,6 @@
     background: #EEEEEE;
     border-top: 2px solid;
     border-bottom: 2px solid;
-    /* margin-top:30px; */
     height: 1.7em;
     font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 10pt;
@@ -64,7 +63,7 @@
   width: 22%;
   float: left;
   text-align:center;
-  font-size: 22px;
+  font-size: 23px;
   height: 100%;
   vertical-align: middle;
   padding-top:.5em;
@@ -72,7 +71,7 @@
 
 .page_name {
   height: 100%;
-  width: 13%;
+  width: 11%;
   float: left;
   text-align:center;
   border: 10em;
@@ -203,7 +202,7 @@ IMG.justforfun {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20pt;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
 
 }
 
