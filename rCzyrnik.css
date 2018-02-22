@@ -184,8 +184,9 @@ DIV.justforfun {
 }
 
 IMG.justforfun {
-    width: 16%;
+    width: 17%;
     padding: 1%;
+    max-height: 150pt;
   }
 
 
