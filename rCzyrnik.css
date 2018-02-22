@@ -179,12 +179,12 @@ DIV.justforfun {
     color: white;
     width: 100%;
     float: left;
-    padding: 1%;
+    /* padding: 0%; */
     margin-bottom: 5%;
 }
 
 IMG.justforfun {
-    width: 31%;
+    width: 17%;
     padding: 1%;
   }
 
