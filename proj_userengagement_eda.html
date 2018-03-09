@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
+        <title> User Engagement </title>
+    </head>
+
+    <body>
+
+      <!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
+          <div class="navbar">
+              <div id="my_name"><a href="index.html">
+                Rebecca Czyrnik</a></div>
+              <div class="page_name" id='current_page'
+                    style='border-bottom: 2px solid lightgrey;'>
+                <a href="proj_userengagement.html"><br/>User Engagement</a></div>
+              <div class="page_name">
+                <a href="proj_frauddetection.html"><br/>Fraud Detection</a></div>
+              <div class="page_name">
+                <a href="proj_priceprediction.html"><br/>Price Prediction</a></div>
+              <div class="page_name">
+                <a href="fun_doggames.html"><br/>Dog Games</a></div>
+              <div class="page_name">
+                <a href="fun_calculators.html"><br/>Calculators</a></div>
+              <div class="page_name">
+                <a href="fun_camera.html"><br/>Camera</a></div>
+              <div class="page_name">
+                <a href="fun_spectroscope.html"><br/>Spectroscope</a></div>
+              <div class="page_name">
+                <a href="fun_shortprojects.html"><br/>Short Projects</a></div>
+          </div>
+
+          <div class="navbar_two">
+              <div class="page_name_two">
+                <a href="proj_userengagement.html">1. Introduction</a></div>
+              <div class="page_name_two">
+                <a href="proj_userengagement_data.html">2. Reading Data</a></div>
+              <div class="page_name_two"  id='current_page_two'>
+                <a href="proj_userengagement_eda.html">3. Who Are Our Users?</a></div>
+              <div class="page_name_two">
+                <a href="proj_userengagement_targets.html">4. Find The Targets</a></div>
+              <div class="page_name_two">
+                <a href="proj_userengagement_machinelearning.html">5. Models</a></div>
+          </div>
+
+    <div class="main_content">
+      <br/><br/><br/>
+
+            <div id="project_text2">
+              <br/>
+              <h3> Gender of Users </h3>
+              <p> Impressively even split of men and women. </p>
+              <p> According to the data, 100% percent of users identify as
+                male or female (i.e. there were no empty values and no
+                values besides male and female). Because the population
+                of the US as a whole doesn't neatly divide themselves into
+                two groups, some people may be either purposefuly
+                mis-identifed themselves or decided to not use the app. </p>
+            </div>
+
+            <img  id="project_pic2"
+                  src="capstone/eda_gender_of_users.png"
+                  alt="gender of users"/>
+
+
+            <div id="project_text2">
+              <br/>
+              <h3> Age of Users </h3>
+              <p> There are no users below 18 (probably because the app doesn't
+              allow it). There are more and more users through the college ages,
+            perhaps as students drop out or move off campus, and then a pretty
+            steep drop off begining around age 23.  </p>
+            </div>
+              <img id="project_pic2"
+                    src="capstone/eda_age_of_users.png"
+                    alt="age of users"/>
+
+
+
+            <div id="project_text2">
+              <br/>
+              <h3> Location of Users </h3>
+              <p> Users cluster around cities, with an especially large
+                contingent in the bay area and Los Angeles.</p>
+            </div>
+            <img id="project_pic2"
+                  src="capstone/eda_location_of_users.png"
+                  alt="location of users"/>
+
+
+
+        <h3> When are Users Signing Up? </h3>
+
+        <img src="capstone/eda_time_of_day.png" alt="time of day"
+              width="33%"
+              height="30%"
+              />
+        <img src="capstone/eda_day_of_week.png" alt="day of week"
+              width="33%"
+              height="30%"
+              />
+        <img src="capstone/eda_day_of_month.png" alt="day of month"
+              width="33%"
+              height="30%"
+              />
+
+        <p> <strong> Time of Day </strong> As if purposefully trying to adhere to stereotypes, users are most
+          active in the late evening and into the wee hours of the morning.
+          They are least likely to sign up during work hours.</p>
+        <p> <strong> Day of Week </strong> There's not a strong day-of-week effect, although users do
+        seem fractionally less likely to sign up over the weekend. </p>
+        <p> <strong> Week of Month </strong> The day of the month does seem to have a strong effect on
+          when users sign up. For the first week, sign ups are low, but then they
+          peak in the second week, drop in the third week, and then go back up
+          in the fourth week. Low sign-ups on the 31st only because not every
+          month has one. </p>
+
+
+
+
+            <div id="project_text2">
+              <h3> What information are users sharing? </h3>
+              <p>
+                When users sign up, they are prompted to input information
+                about themselves and their ideal apartment. From most to least
+                popular, this is what percent of users shared each piece of information.
+              </p>
+            </div>
+            <img id="project_pic2"
+                  src="capstone/eda_percent_responding.png"
+                  alt="percent responding"/>
+
+            <div id="project_text2">
+              <h3> How long do users have to find a place? </h3>
+              <p>
+                About 3500 users put a date either in the past or over a year in the future.
+                A lot of users selected a date a month, two months, or three months out.
+              </p>
+            </div>
+
+              <img id="project_pic2" src="capstone/eda_time_to_find_a_room.png"  alt="time to find a room"/>
+
+
+
+   </div>
+
+
+  </body>
+  </html>

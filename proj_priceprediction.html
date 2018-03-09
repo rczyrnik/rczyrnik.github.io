@@ -8,12 +8,11 @@
 
     <body>
 
-<!--/*><><><><><><><><><><><><>  HEADER  <><><><><><><><><><><*/-->
-
-
 <!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
     <div class="navbar">
         <div id="my_name"><a href="index.html">Rebecca Czyrnik</a></div>
+        <div class="page_name">
+          <a href="proj_userengagement.html"><br/>User Engagement</a></div>
         <div class="page_name">
           <a href="proj_frauddetection.html"><br/>Fraud Detection</a></div>
         <div class="page_name" id='current_page'>
@@ -31,7 +30,7 @@
     </div>
 
     <div class="main_content">
-<br/><br/>
+      <br/><br/>
         <div style="width:100%; font-size:80%; text-align:center;">
           <img src="casestudies/price_how_much_is_my_tractor_worth.png"
                 alt="how much is my tractor worth?"
@@ -69,10 +68,10 @@
         </p>
 
         <div><pre><code>
-    train_df['Counts'] = 1
-    avg_prices_df = train_df[['ModelID','SalePrice','Counts']].groupby('ModelID').sum()
-    avg_prices_df['AvgPrice'] = (avg_prices_df.SalePrice / avg_prices_df.Counts).round(2)
-    avg_prices_df.head()
+  train_df['Counts'] = 1
+  avg_prices_df = train_df[['ModelID','SalePrice','Counts']].groupby('ModelID').sum()
+  avg_prices_df['AvgPrice'] = (avg_prices_df.SalePrice / avg_prices_df.Counts).round(2)
+  avg_prices_df.head()
         </code></pre></div>
 
         <img class = "displayed"
@@ -99,11 +98,11 @@
         </p>
 
         <pre><code>
-    def predict_price(id):
-        try: return avg_prices_df.loc[id]['AvgPrice']
-        except: return avg_sale_price
+  def predict_price(id):
+      try: return avg_prices_df.loc[id]['AvgPrice']
+      except: return avg_sale_price
 
-    avg_sale_price = train_df.SalePrice.sum()/len(train_df)
+  avg_sale_price = train_df.SalePrice.sum()/len(train_df)
         </code></pre>
 
         <h2> Step 3: Use The Function To Predict Prices in the Test Data </h2>
@@ -113,9 +112,9 @@
         </p>
 
         <pre><code>
-    test_predicted_prices = test_df.ModelID.apply(predict_price)
-    score_gtap = score(test_predicted_prices, test_actual_prices)
-    print("The guess-the-average-price model has a RMLSE of {:.4}.".format(score_gtap))
+  test_predicted_prices = test_df.ModelID.apply(predict_price)
+  score_gtap = score(test_predicted_prices, test_actual_prices)
+  print("The guess-the-average-price model has a RMLSE of {:.4}.".format(score_gtap))
         </code></pre>
 
         <p>
@@ -127,7 +126,8 @@
         <br/>
         <br/>
         <p>
-          <strong>Unfortuantely, this solution wasn't strictly legal. </strong>
+          <strong style="font-size: 18px">
+            Unfortuantely, this solution wasn't strictly legal. </strong>
 
           By the terms of the competition, I was required to create a linear
           model. Luckily,
@@ -157,7 +157,7 @@
           avenue of study.
         </p>
 
-        <h1> Summary </h1>
+        <h2> Summary </h2>
         <p> I was really proud that my method did so well, but also let down
           that I didn't need to use the linear regression skills I had been studying.
         </p>

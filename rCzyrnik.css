@@ -1,3 +1,17 @@
+/* .crop {
+    width: 80%;
+    height: 80%;
+    overflow: hidden;
+}
+
+.crop img {
+    width: 300px;
+    height: 200px;
+    margin: -40px 0 0 -40px;
+} */
+
+
+
 /*><><><><><><><><><><><><> SITE LAYOUT <><><><><><><><><><><*/
 .header {
     position: fixed;
@@ -15,14 +29,7 @@
     float: right;
 }
 
-.navbar {
-    background: #EEEEEE;
-    border-top: 2px solid;
-    border-bottom: 2px solid;
-    height: 1.7em;
-    font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    font-size: 10pt;
-}
+
 
 .main_content {
     padding-top: 40px;
@@ -53,35 +60,59 @@
     background: #EEEEEE;
     margin-top: -15px;
     position: fixed;
-    height: 3.5em;
+    height: 50px;
     font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 10pt;
-    width: 100%
-}
+    width: 100%;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    }
 
 #my_name {
-  width: 22%;
+  height: 100%;
+  width: 20%;
   float: left;
   text-align:center;
   font-size: 23px;
-  height: 100%;
-  vertical-align: middle;
-  padding-top:.5em;
+  padding-top: 10pt;
 }
 
 .page_name {
   height: 100%;
-  width: 11%;
+  width: 10%;
   float: left;
-  text-align:center;
+  text-align: center;
   border: 10em;
-
 }
 
 #current_page {
   background-color: lightgrey;
 }
 
+.navbar_two {
+    background: lightgrey;
+    margin-top: 39px;
+    position: fixed;
+    height: 20pt;
+    font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 10pt;
+    width: 100%;
+    padding-top: 5pt;
+    }
+
+.page_name_two {
+      height: 100%;
+      width: 20%;
+      float: left;
+      text-align: center;
+      border: 10em;
+    }
+
+#current_page_two {
+  /* background-color: lightgrey; */
+  font-size: 16pt;
+  font-weight: bold;
+}
 /*><><><><><><><><><><><><><><><><> EVERYTHING <><><><><><><><><><><><><><><><*/
 body {
     background-color: white;
@@ -102,7 +133,7 @@ h2 {
 }
 
 h3 {
-    font-size: 18pt;
+    font-size: 14pt;
     padding: 1em 0em 0em 0em;
     margin: 0em;
     font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -140,10 +171,29 @@ ul {
 
 }
 
+li {
+  font-weight: bold;
+}
+
 pre {
    margin: -.8em 0em -.8em 0em
  }
 
+ table {
+     border-collapse: collapse;
+ }
+
+
+
+th, td, tr {
+    height: 15pt;
+    text-align: center;
+    padding: 2pt;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
 /*><><><><><><><><><><><><> MULTIPLE PAGES <><><><><><><><><><><*/
 
 IMG.displayed {
@@ -172,8 +222,19 @@ IMG.displayed {
   width: calc(100% - 200pt)
 }
 
+
+#project_pic2 {
+  float: left;
+  width: 300pt;
+  /* margin-top: -20pt; */
+}
+
+#project_text2 {
+  float: left;
+  width: calc(100% - 300pt)
+}
+
 pre {
-  /* background-color: pink; */
   overflow:auto;
 }
 /*><><><><><><><><><><><><><><> INDEX: JUST FOR FUN <><><><><><><><><><><><><*/

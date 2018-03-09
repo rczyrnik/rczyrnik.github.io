@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
+        <title> User Engagement </title>
+    </head>
+
+    <body>
+
+      <!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
+          <div class="navbar">
+              <div id="my_name"><a href="index.html">
+                Rebecca Czyrnik</a></div>
+              <div class="page_name" id='current_page'
+                    style='border-bottom: 2px solid lightgrey;'>
+                <a href="proj_userengagement.html"><br/>User Engagement</a></div>
+              <div class="page_name">
+                <a href="proj_frauddetection.html"><br/>Fraud Detection</a></div>
+              <div class="page_name">
+                <a href="proj_priceprediction.html"><br/>Price Prediction</a></div>
+              <div class="page_name">
+                <a href="fun_doggames.html"><br/>Dog Games</a></div>
+              <div class="page_name">
+                <a href="fun_calculators.html"><br/>Calculators</a></div>
+              <div class="page_name">
+                <a href="fun_camera.html"><br/>Camera</a></div>
+              <div class="page_name">
+                <a href="fun_spectroscope.html"><br/>Spectroscope</a></div>
+              <div class="page_name">
+                <a href="fun_shortprojects.html"><br/>Short Projects</a></div>
+          </div>
+
+          <div class="navbar_two">
+              <div class="page_name_two">
+                <a href="proj_userengagement.html">1. Introduction</a></div>
+              <div class="page_name_two"  id='current_page_two'>
+                <a href="proj_userengagement_data.html">2. Reading Data</a></div>
+              <div class="page_name_two">
+                <a href="proj_userengagement_eda.html">3. Who Are Our Users?</a></div>
+              <div class="page_name_two">
+                <a href="proj_userengagement_targets.html">4. Find The Targets</a></div>
+              <div class="page_name_two">
+                <a href="proj_userengagement_machinelearning.html">5. Models</a></div>
+          </div>
+
+    <div class="main_content">
+      <br/><br/><br/>
+
+
+
+        I used two main tables: one table held information about the users and
+        the other had all the message they sent.
+
+
+        <h3> User Data </h3>
+
+        <p> I received a json file that contained about 50 columns of information for
+          over 35,000 users. My first pass through the data tried identify or create
+          useful information from the raw data. For example:
+        </p>
+
+        <ol>
+          <li> Removing Columns </li>
+          <p>
+            Some columns had useless or duplicate information, such as a repeated
+            user id or read/write permissions (they were all set to true for everyone).
+            Other columns had personal information like someone's name.
+          </p>
+          <li> Turning Columns into Binary Values </li>
+          <p>
+            For example, I had the facebook id for about 60% of users. I'm not
+            interested in useing the facebook id iteslf, but it might be useful to know
+            who entered their facebook id, so I turned it into a 1 (information
+            included) or 0 (information not included).
+          </p>
+          <li> Extracting Useful Information </li>
+          <p>
+            From the 'profile created' time stamp I could extract information
+            about the time of day or day of week when the user created their profile.
+            From their email, I could see what email service they used (gmail was the
+            most popular).
+          </p>
+          <p>
+            Some features were more difficult to get out. For example, information
+            about neighborhoods were kept in a separate table. Users could
+            select more than one neighborhood
+            so I couldn't simply join the tables on the neighborhood id.
+          </p>
+          <li> Simple Feature Engineering </li>
+          <p>
+            For example, we can get a rent range from the min and max rent information.
+
+          </p>
+          <li> Overall User Engagement </li>
+          <p>
+            By counting up how many optional value the user included, we can
+            get a rough idea of how engaged they will be with the app.
+          </p>
+        </ol>
+
+        <p>
+          At the end, I had about 65 columns of information on each user.
+        </p>
+
+        <h3> Message Data </h3>
+
+        <p>
+          The message data was a bit harder to tease apart. It appeared to be
+          a mix of two tables, which I called the conversation table and
+          the last_message table. If JSON munging is your thing, I strongly
+          recommend heading over to my git repo for some fun.
+        </p>
+
+
+   </div>
+
+
+  </body>
+  </html>

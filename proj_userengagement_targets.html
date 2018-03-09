@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
+        <title> User Engagement </title>
+    </head>
+
+    <body>
+
+      <!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
+          <div class="navbar">
+              <div id="my_name"><a href="index.html">
+                Rebecca Czyrnik</a></div>
+              <div class="page_name" id='current_page'
+                    style='border-bottom: 2px solid lightgrey;'>
+                <a href="proj_userengagement.html"><br/>User Engagement</a></div>
+              <div class="page_name">
+                <a href="proj_frauddetection.html"><br/>Fraud Detection</a></div>
+              <div class="page_name">
+                <a href="proj_priceprediction.html"><br/>Price Prediction</a></div>
+              <div class="page_name">
+                <a href="fun_doggames.html"><br/>Dog Games</a></div>
+              <div class="page_name">
+                <a href="fun_calculators.html"><br/>Calculators</a></div>
+              <div class="page_name">
+                <a href="fun_camera.html"><br/>Camera</a></div>
+              <div class="page_name">
+                <a href="fun_spectroscope.html"><br/>Spectroscope</a></div>
+              <div class="page_name">
+                <a href="fun_shortprojects.html"><br/>Short Projects</a></div>
+          </div>
+
+    <div class="navbar_two">
+        <div class="page_name_two">
+          <a href="proj_userengagement.html">1. Introduction</a></div>
+        <div class="page_name_two">
+          <a href="proj_userengagement_data.html">2. Reading Data</a></div>
+        <div class="page_name_two">
+          <a href="proj_userengagement_eda.html">3. Who Are Our Users?</a></div>
+        <div class="page_name_two"  id='current_page_two'>
+          <a href="proj_userengagement_targets.html">4. Find The Targets</a></div>
+        <div class="page_name_two">
+          <a href="proj_userengagement_machinelearning.html">5. Models</a></div>
+    </div>
+
+    <div class="main_content">
+      <br/><br/><br/>
+      <p> It's nice knowing who our users are, but I'd really like to know if the app
+        is successful at matching roommates together. Unfortunately, we don't know if
+        people who meet through the app ever later on get an apartment together, but
+        we do know who messages whom. </p>
+
+        <h2> Some Background Stats </h2>
+
+        <p>
+          I looked at just over 11,000 messages sent over a 9 month range, of which
+          only about 6% received a response. This made me curious about why the response
+          rate was so low. If I were a user of this app, I wouldn't be happy to hear that
+          just 1 out of every 20 messages I sent would get an answer.
+        </p>
+
+        <p>
+          I decided to investigate the question: "Why do some messages get
+          responses and others don't?"
+        </p>
+
+        <h2> The Data </h2>
+
+        <p>
+          I needed to rearrange my data to ask my question in a
+          machine readable way. Some possible factors come directly from
+          the message itself (how long is it?, when was it sent?). Other
+          factors come from the two users in the conversation (how old are they?,
+          when do they need a room?). And the last group of factors comes from
+          interactions between the users and the message (How similar are the
+          users in age? How long between when the message was sent will the
+          recipient need a room?).
+        </p>
+
+
+        <p> I started with two tables that looked like this: </p>
+
+        <table>
+          <tr><th>Message ID</th><th>Sender ID</th><th>Receiver ID</th><th>Date Sent</th><th>Time Sent</th><th>Conversation Length</th>
+          </tr>
+          <tr><td>31415</td>     <td>987</td>      <td>654</td>        <td>2017-5-19</td><td>18:34</td>    <td>5</td>
+          </tr>
+          <!-- <tr><td>27182</td>     <td>123</td>      <td>456</td>        <td>2017-5-19</td><td>18:36</td>    <td>1</td>
+          </tr>
+          <tr><td>14142</td>     <td>123</td>      <td>789</td>        <td>2017-5-19</td><td>17:05</td>    <td>2</td>
+          </tr> -->
+       </table>
+       <br/>
+       <table>
+         <tr><th>User ID</th><th>Age</th><th>Gender</th><th>Needs Room By</th>
+         </tr>
+         <tr><td>987</td>    <td>23</td> <td>Female</td><td>2017-06-01</td>
+         </tr>
+         <tr><td>654</td>    <td>24</td> <td>Female</td><td>2017-06-05</td>
+         </tr>
+         <!-- <tr><td>123</td>    <td>22</td> <td>Male</td>  <td>2017-7-01</td>
+         </tr>
+         <tr><td>456</td>    <td>22</td> <td>Female</td><td>2017-6-25</td>
+         </tr>
+         <tr><td>789</td>    <td>26</td> <td>Male</td>  <td>2017-6-09</td>
+         </tr> -->
+      </table>
+
+        <p>
+          My first step was to combine the conversation and the user table.
+          So if message 31415 was sent from user 987 to user 654 I have to
+          look up the information about the two users and add it to message
+          31415.
+        </p>
+
+        <table>
+          <tr>
+            <th>Message ID</th>
+            <th>Sender ID</th>
+            <th>Receiver ID</th>
+            <th>Date Sent</th>
+            <th>Time Sent</th>
+            <th>Conversation Length</th>
+            <th>Sender Age</th>
+            <th>Receiver Age</th>
+            <th>Sender Gender</th>
+            <th>Receiver Gender</th>
+            <th>Sender Needs Room</th>
+            <th>Receiver Needs Room</th>
+          </tr>
+          <tr>
+            <td>31415</td>
+            <td>987</td>
+            <td>654</td>
+            <td>2017-5-19</td>
+            <td>18:34</td>
+            <td>5</td>
+            <td>23</td>
+            <td>24</td>
+            <td>Female</td>
+            <td>Female</td>
+            <td>2017-06-01</td>
+            <td>2017-06-05</td>
+          </tr>
+       </table>
+
+        <p>
+          The next step was to use the information about the message, sender, and
+          recipient to calculate interatctions between the variables.
+        </p>
+
+        <table>
+          <tr>
+            <th>Message ID</th>
+            <th>Sender ID</th>
+            <th>Receiver ID</th>
+            <th>Date Sent</th>
+            <th>Time Sent</th>
+            <th>Conversation Length</th>
+            <th>Sender Age</th>
+            <th>Receiver Age</th>
+            <th>Sender Gender</th>
+            <th>Receiver Gender</th>
+            <th>Sender Needs Room</th>
+            <th>Receiver Needs Room</th>
+            <th>Age Difference</th>
+            <th>Same Gender?</th>
+            <th>Sender Urgency</th>
+            <th>Receiver Urgency</th>
+            <th>Difference in Urgency</th>
+          </tr>
+          <tr>
+            <td>31415</td>
+            <td>987</td>
+            <td>654</td>
+            <td>2017-5-19</td>
+            <td>18:34</td>
+            <td>5</td>
+            <td>23</td>
+            <td>24</td>
+            <td>Female</td>
+            <td>Female</td>
+            <td>2017-06-01</td>
+            <td>2017-06-05</td>
+            <th>1 year</th>
+            <th>Yes</th>
+            <th>12 days</th>
+            <th>17 days</th>
+            <th>6 days</th>
+          </tr>
+        </table>
+
+
+        <h2> The Targets </h2>
+        <p> I ran my analyses two ways. First I tried to predict whether a first
+          message would get a response. Then I reframed the question to predict
+          the length of a conversation given information about the first message. </p>
+
+        <p> I already had the length of the conversation, so I just made one last column
+          called "response?" and set that to 0 if the conversation was just one message
+          long, and 1 if it was longer than 1 message.
+        </p>
+   </div>
+
+
+  </body>
+  </html>
