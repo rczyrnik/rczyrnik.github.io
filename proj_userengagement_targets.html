@@ -41,93 +41,151 @@
         <div class="page_name_two"  id='current_page_two'>
           <a href="proj_userengagement_targets.html">4. Find The Targets</a></div>
         <div class="page_name_two">
-          <a href="proj_userengagement_machinelearning.html">5. Models</a></div>
+          <a href="proj_userengagement_models.html">5. Models</a></div>
     </div>
 
     <div class="main_content">
       <br/><br/><br/>
-      <p> It's nice knowing who our users are, but I'd really like to know if the app
-        is successful at matching roommates together. Unfortunately, we don't know if
-        people who meet through the app ever later on get an apartment together, but
-        we do know who messages whom. </p>
 
-        <h2> Some Background Stats </h2>
+      <h1> Is the app any good? </h1>
 
-        <p>
-          I looked at just over 11,000 messages sent over a 9 month range, of which
-          only about 6% received a response. This made me curious about why the response
-          rate was so low. If I were a user of this app, I wouldn't be happy to hear that
-          just 1 out of every 20 messages I sent would get an answer.
-        </p>
+      <p>
+        It's nice knowing who our users are, but I'd really like to know if the app
+        is successful at matching roommates together. Unfortunately, short of
+        stalking every one of the 30,000 somthing users of the app, we don't know if
+        people who meet through the app ever later on get an apartment together.
+      </p>
 
-        <p>
-          I decided to investigate the question: "Why do some messages get
-          responses and others don't?"
-        </p>
+      <p>
+        Rather than answer the difficult question "how many successful roommate
+        relationships came out of this app" I decided to focus on the more narrow
+        question "how many conversations occured on this app?"
+      </p>
 
-        <h2> The Data </h2>
+      <p>
+        Luckily I had access to the message log!
+      </p>
 
-        <p>
-          I needed to rearrange my data to ask my question in a
-          machine readable way. Some possible factors come directly from
-          the message itself (how long is it?, when was it sent?). Other
-          factors come from the two users in the conversation (how old are they?,
-          when do they need a room?). And the last group of factors comes from
-          interactions between the users and the message (How similar are the
-          users in age? How long between when the message was sent will the
-          recipient need a room?).
-        </p>
+      <h2> Some Background Stats </h2>
+
+      <p>
+        I looked at just over 11,000 messages sent over a 9 month range, of which
+        only about 6% received a response (!). This made me curious about why the response
+        rate was so low. If I were a user of this app, I wouldn't be happy if
+        just 1 out of every 20 messages I sent ever got an answer.
+      </p>
+
+      <h2> The Data </h2>
+
+      <p>
+        I needed to rearrange the data to ask my question in a
+        machine readable way. There were three types of features I wanted to look at:
+      </p>
+
+      <ol>
+        <li>
+          Features from the message:
+            <ul>
+              <li>How long is it?</li>
+              <li>When was it sent?</li>
+            </ul>
+        </li>
+        <li>
+          Features from the users:
+          <ul>
+            <li>How old are they?</li>
+            <li>When do they need a room?</li>
+          </ul>
+
+      </li>
+        <li>
+          Features from combinations of the message and users:
+        <ul>
+            <li>How similar are the users in age? </li>
+          <li>How long between when the message was sent will the
+        recipient need a room? </li>
+        <ul>
+      </li>
+    </ol>
 
 
-        <p> I started with two tables that looked like this: </p>
+    <h2> Features from the message </h1>
+
+        <p> The first set of features were easiest. I had a table that looked
+          roughly like this, with the message id and important information
+        about the message.
+       </p>
 
         <table>
-          <tr><th>Message ID</th><th>Sender ID</th><th>Receiver ID</th><th>Date Sent</th><th>Time Sent</th><th>Conversation Length</th>
+          <tr>
+            <th>Message ID</th>
+            <th>Send ID</th>
+            <th>Receiv ID</th>
+            <th>Date Sent</th>
+            <th>Time Sent</th>
+            <th>Conv Len</th>
           </tr>
-          <tr><td>31415</td>     <td>987</td>      <td>654</td>        <td>2017-5-19</td><td>18:34</td>    <td>5</td>
+          <tr>
+            <td>31415</td>
+            <td>987</td>
+            <td>654</td>
+            <td>2017-5-19</td>
+            <td>18:34</td>
+            <td>5</td>
           </tr>
-          <!-- <tr><td>27182</td>     <td>123</td>      <td>456</td>        <td>2017-5-19</td><td>18:36</td>    <td>1</td>
-          </tr>
-          <tr><td>14142</td>     <td>123</td>      <td>789</td>        <td>2017-5-19</td><td>17:05</td>    <td>2</td>
-          </tr> -->
        </table>
        <br/>
+
+       <h2> Features from the users </h1>
+         <p>
+           Information about the users is stored in a separate table which looks
+           something like this:
+         </p>
        <table>
-         <tr><th>User ID</th><th>Age</th><th>Gender</th><th>Needs Room By</th>
+         <tr>
+           <th>User ID</th>
+           <th>Age</th>
+           <th>Gender</th>
+           <th>Needs Room By</th>
          </tr>
-         <tr><td>987</td>    <td>23</td> <td>Female</td><td>2017-06-01</td>
+         <tr>
+           <td>987</td>
+           <td>23</td>
+           <td>Female</td>
+           <td>2017-06-01</td>
          </tr>
-         <tr><td>654</td>    <td>24</td> <td>Female</td><td>2017-06-05</td>
+         <tr>
+           <td>654</td>
+           <td>24</td>
+           <td>Female</td>
+           <td>2017-06-05</td>
          </tr>
-         <!-- <tr><td>123</td>    <td>22</td> <td>Male</td>  <td>2017-7-01</td>
-         </tr>
-         <tr><td>456</td>    <td>22</td> <td>Female</td><td>2017-6-25</td>
-         </tr>
-         <tr><td>789</td>    <td>26</td> <td>Male</td>  <td>2017-6-09</td>
-         </tr> -->
       </table>
 
+      <br/>
+
         <p>
-          My first step was to combine the conversation and the user table.
-          So if message 31415 was sent from user 987 to user 654 I have to
-          look up the information about the two users and add it to message
-          31415.
+          I first combined the conversation and the user table.
+          Message 31415 was sent from user 987 to user 654 so information about
+          those two users is added to the conversation table.
+          (New columns are indicated by yellow shading.)
         </p>
 
         <table>
           <tr>
             <th>Message ID</th>
-            <th>Sender ID</th>
-            <th>Receiver ID</th>
+            <th>Send ID</th>
+            <th>Reciv ID</th>
             <th>Date Sent</th>
             <th>Time Sent</th>
-            <th>Conversation Length</th>
-            <th>Sender Age</th>
-            <th>Receiver Age</th>
-            <th>Sender Gender</th>
-            <th>Receiver Gender</th>
-            <th>Sender Needs Room</th>
-            <th>Receiver Needs Room</th>
+            <th>Conv Len</th>
+            <th bgcolor="#FFFFD5">S. Age</th>
+            <th bgcolor="#FFFFD5">R. Age</th>
+            <th bgcolor="#FFFFD5">S. Gender</th>
+            <th bgcolor="#FFFFD5">R. Gender</th>
+            <th bgcolor="#FFFFD5">S. Move-in</th>
+            <th bgcolor="#FFFFD5">R. Move-in</th>
+
           </tr>
           <tr>
             <td>31415</td>
@@ -135,40 +193,43 @@
             <td>654</td>
             <td>2017-5-19</td>
             <td>18:34</td>
-            <td>5</td>
-            <td>23</td>
-            <td>24</td>
-            <td>Female</td>
-            <td>Female</td>
-            <td>2017-06-01</td>
-            <td>2017-06-05</td>
+                        <td>5</td>
+            <td bgcolor="#FFFFD5">23</td>
+            <td bgcolor="#FFFFD5">24</td>
+            <td bgcolor="#FFFFD5">Female</td>
+            <td bgcolor="#FFFFD5">Female</td>
+            <td bgcolor="#FFFFD5">2017-06-01</td>
+            <td bgcolor="#FFFFD5">2017-06-05</td>
+
           </tr>
        </table>
-
+     </br>
+     <h1>Features from combinations of the message and users </h1>
         <p>
-          The next step was to use the information about the message, sender, and
-          recipient to calculate interatctions between the variables.
+          Finally, once I had information such as the age of the two users, I
+          could calcualte interaction features such as the difference in age between them.
+          (New columns are once again indicated by yellow shading.)
         </p>
 
         <table>
           <tr>
             <th>Message ID</th>
-            <th>Sender ID</th>
-            <th>Receiver ID</th>
+            <th>Send ID</th>
+            <th>Receiv ID</th>
             <th>Date Sent</th>
             <th>Time Sent</th>
-            <th>Conversation Length</th>
-            <th>Sender Age</th>
-            <th>Receiver Age</th>
-            <th>Sender Gender</th>
-            <th>Receiver Gender</th>
-            <th>Sender Needs Room</th>
-            <th>Receiver Needs Room</th>
-            <th>Age Difference</th>
-            <th>Same Gender?</th>
-            <th>Sender Urgency</th>
-            <th>Receiver Urgency</th>
-            <th>Difference in Urgency</th>
+            <th>Conv Len</th>
+            <th>S. Age</th>
+            <th>Receiv Age</th>
+            <th>S. Gender</th>
+            <th>R. Gender</th>
+            <th>S. Needs Room</th>
+            <th>R. Needs Room</th>
+            <th bgcolor="#FFFFD5">Age Diff</th>
+            <th bgcolor="#FFFFD5">Same Gender?</th>
+            <th bgcolor="#FFFFD5">S. Urgency</th>
+            <th bgcolor="#FFFFD5">R. Urgency</th>
+            <th bgcolor="#FFFFD5">Diff in Urgency</th>
           </tr>
           <tr>
             <td>31415</td>
@@ -183,24 +244,35 @@
             <td>Female</td>
             <td>2017-06-01</td>
             <td>2017-06-05</td>
-            <th>1 year</th>
-            <th>Yes</th>
-            <th>12 days</th>
-            <th>17 days</th>
-            <th>6 days</th>
+            <th bgcolor="#FFFFD5">1 year</th>
+            <th bgcolor="#FFFFD5">Yes</th>
+            <th bgcolor="#FFFFD5">12 days</th>
+            <th bgcolor="#FFFFD5">17 days</th>
+            <th bgcolor="#FFFFD5">6 days</th>
           </tr>
         </table>
 
 
         <h2> The Targets </h2>
-        <p> I ran my analyses two ways. First I tried to predict whether a first
-          message would get a response. Then I reframed the question to predict
-          the length of a conversation given information about the first message. </p>
-
-        <p> I already had the length of the conversation, so I just made one last column
-          called "response?" and set that to 0 if the conversation was just one message
-          long, and 1 if it was longer than 1 message.
+        <p>
+          My goal is to use the information I have to predict whether this
+          conversation lasted more than a single message. In this case, we know
+          that the conversation length is five messages. I would call that a win
+          for the app!
         </p>
+
+        <p>
+          To create X, my feature table, I removed the "Conversation Length"
+          variable, because obviously that would be cheating. I also removed some
+          not-very-useful features like the ids.
+        </p>
+        <p>
+          To create y, my target variable, I labeled any conversation that
+          was at least two messages long as a 1, and shorter conversations were
+          0s.
+        </p>
+
+
    </div>
 
 
