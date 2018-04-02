@@ -34,16 +34,39 @@
         <div style="width:100%; font-size:80%; text-align:center;">
           <img src="casestudies/price_how_much_is_my_tractor_worth.png"
                 alt="how much is my tractor worth?"
-                width="80%"
+                width="60%"
                 height="80%"
                 />
                 <br >
 
         </div>
 
-        <h2> Goal </h2>
-        <p> Use previous sale data to predict the price of heavy
-          equiptment sold at auction. </p>
+
+        <div class="FAQBox">
+          <h3> What is the goal of this project? </h3>
+          <p class='FAQ'>
+            The goal of the contest is to predict the sale price of a particular
+            piece of heavy equipment at auction based on it's usage, equipment
+            type, and configuration. The data is sourced from auction result
+            postings and includes information on usage and equipment configurations.
+
+          </p>
+
+          <h3> Who participated in this project? What was my role? </h3>
+          <p class='FAQ'> This was a team effort with two other students.
+          My primary role was to write the code that used the averaged of previous
+          prices to predict an item's auction price.
+          </p>
+
+          <h3> What tools did I use? </h3>
+          <p class='FAQ'> I analyzed the data with python using pandas, numpy, and sklearn.
+          </p>
+
+          <h3> What was the big takeaway</h3>
+          <p class='FAQ'> Often the simplest model is the best, and a little insight
+            can go a long way.
+          </p>
+        </div>
 
         <h2> Step 0: The Background Stuff </h2>
         <p> I wouldn't want to lose your interest with background imports and functions,
@@ -53,9 +76,11 @@
 
         <h2> Step 1: Get Average Sale Price By Model </h2>
         <p>
-          <strong> Here's where things get interesting! </strong> We reasoned
-          that the
-          best predictor of price would be the price of previous items. So if I
+          <strong> Here's where things get interesting! </strong>
+          Most groups built models based on features such as the item's age or engine size.
+          But we reasoned that the
+          best predictor of price would be the price the same item sold for at previous
+          auctions. So if I
           wanted to know the price of a pinecone, it would be
           helpful to know that two previous pinecones sold for $4 and $5.
         </p>
@@ -129,10 +154,10 @@
           <strong style="font-size: 18px">
             Unfortuantely, this solution wasn't strictly legal. </strong>
 
-          By the terms of the competition, I was required to create a linear
+          By the terms of the competition, we were required to create a linear
           model. Luckily,
           this wasn't hard to do once I had the average price lookup table and
-          function. Stay tuned for an explanation of how I did it.
+          function. Stay tuned for an explanation of how we did it.
         </p>
         <p>
           At first I thought it was arbitrary that I had to contort my solution

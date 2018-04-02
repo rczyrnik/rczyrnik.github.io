@@ -164,6 +164,8 @@ td {
 
 ol {
     font-size: 10pt;
+    padding: 0pt 0pt 0pt 20pt;
+    margin: 0pt 0pt 0pt 0pt;
 }
 
 ul {
@@ -172,7 +174,7 @@ ul {
 }
 
 li {
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 pre {
@@ -288,3 +290,17 @@ IMG.justforfun {
 #BackgroundBox img {
     width: 100%
 }
+
+/*><><><><><><><><><><><><> FAQ BOX  <><><><><><><><><><><*/
+
+.FAQBox {
+    width: 97%;
+    background-color: #FF9F00;
+    margin: 10pt 0pt 20pt 0pt;
+    padding: 10pt 10pt 20pt 10pt;
+    text-align: justified;
+    border-radius: 5px;
+}
+
+.FAQ {
+  font-size: 11pt;
