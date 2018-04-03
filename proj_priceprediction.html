@@ -30,17 +30,6 @@
     </div>
 
     <div class="main_content">
-      <br/><br/>
-        <div style="width:100%; font-size:80%; text-align:center;">
-          <img src="casestudies/price_how_much_is_my_tractor_worth.png"
-                alt="how much is my tractor worth?"
-                width="60%"
-                height="80%"
-                />
-                <br >
-
-        </div>
-
 
         <div class="FAQBox">
           <h3> What is the goal of this project? </h3>
@@ -52,22 +41,31 @@
 
           </p>
 
-          <h3> Who participated in this project? What was my role? </h3>
-          <p class='FAQ'> This was a team effort with two other students.
-          My primary role was to write the code that used the averaged of previous
-          prices to predict an item's auction price.
+          <h3> Context </h3>
+          <p class='FAQ'> This was the first case study I worked on at Galvanize.
+            I was on a team of three and my primary role was to write the code
+            that used the averaged of previous prices to predict an item's auction price.
           </p>
 
           <h3> What tools did I use? </h3>
           <p class='FAQ'> I analyzed the data with python using pandas, numpy, and sklearn.
           </p>
 
-          <h3> What was the big takeaway</h3>
+          <h3> What was the big takeaway?</h3>
           <p class='FAQ'> Often the simplest model is the best, and a little insight
             can go a long way.
           </p>
-        </div>
 
+        </div>
+        <div style="width:100%; font-size:80%; text-align:center;">
+          <img src="casestudies/price_how_much_is_my_tractor_worth.png"
+                alt="how much is my tractor worth?"
+                width="60%"
+                height="80%"
+                />
+                <br >
+
+        </div>
         <h2> Step 0: The Background Stuff </h2>
         <p> I wouldn't want to lose your interest with background imports and functions,
         but you can head over here (hyperlink forthcoming) for more details.
@@ -157,14 +155,15 @@
           By the terms of the competition, we were required to create a linear
           model. Luckily,
           this wasn't hard to do once I had the average price lookup table and
-          function. Stay tuned for an explanation of how we did it.
+          function. In essence, we created another feature that was the "average
+          price of that model" and then fit a linear model with that feature.
+          Unsurprisingly, the model almost entirely ignored the other features and
+          made its prediction with just that one column.
         </p>
         <p>
           At first I thought it was arbitrary that I had to contort my solution
           to work within the constraints. If I could do it better with a simple
           lookup, why go any further?
-        </p>
-        <p>
           Now, however, I have two reasons why being able to reformat my solution
           to work as a linear regression is potentially useful.
         </p>
@@ -183,8 +182,8 @@
         </p>
 
         <h2> Summary </h2>
-        <p> I was really proud that my method did so well, but also let down
-          that I didn't need to use the linear regression skills I had been studying.
+        <p> I was really proud that my method did so well, although I did find it odd
+          that I didn't actually use linear regression.
         </p>
         <p> When I talked to other people in the data sciency industry about
           this project, they said my situation wasn't uncommon. Sometimes the

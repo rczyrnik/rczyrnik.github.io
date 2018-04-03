@@ -61,20 +61,20 @@
         </p>
 
         <ol>
-          <li> Removing Columns </li>
+          <li class='bold'> Removing Columns </li>
           <p>
             Some columns had useless or duplicate information, such as a repeated
             user id or read/write permissions (they were all set to true for everyone).
             Other columns had personal information like someone's name.
           </p>
-          <li> Turning Columns into Binary Values </li>
+          <li class='bold'> Turning Columns into Binary Values </li>
           <p>
             For example, I had the facebook id for about 60% of users. I'm not
             interested in useing the facebook id iteslf, but it might be useful to know
             who entered their facebook id, so I turned it into a 1 (information
             included) or 0 (information not included).
           </p>
-          <li> Extracting Useful Information </li>
+          <li class='bold'> Extracting Useful Information </li>
           <p>
             From the 'profile created' time stamp I could extract information
             about the time of day or day of week when the user created their profile.
@@ -87,12 +87,12 @@
             select more than one neighborhood
             so I couldn't simply join the tables on the neighborhood id.
           </p>
-          <li> Simple Feature Engineering </li>
+          <li class='bold'> Simple Feature Engineering </li>
           <p>
             For example, we can get a rent range from the min and max rent information.
 
           </p>
-          <li> Overall User Engagement </li>
+          <li class='bold'> Overall User Engagement </li>
           <p>
             By counting up how many optional value the user included, we can
             get a rough idea of how engaged they will be with the app.

@@ -109,9 +109,10 @@
     }
 
 #current_page_two {
-  /* background-color: lightgrey; */
+  color: red;
   font-size: 16pt;
   font-weight: bold;
+
 }
 /*><><><><><><><><><><><><><><><><> EVERYTHING <><><><><><><><><><><><><><><><*/
 body {
@@ -173,9 +174,10 @@ ul {
 
 }
 
-li {
-  /* font-weight: bold; */
+.bold {
+  font-weight: bold;
 }
+
 
 pre {
    margin: -.8em 0em -.8em 0em
@@ -186,7 +188,6 @@ pre {
  }
 
 
-
 th, td, tr {
     height: 15pt;
     text-align: center;
@@ -194,7 +195,7 @@ th, td, tr {
 }
 
 table, th, td {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 /*><><><><><><><><><><><><> MULTIPLE PAGES <><><><><><><><><><><*/
 
@@ -302,5 +303,10 @@ IMG.justforfun {
     border-radius: 5px;
 }
 
+h3.FAQBox {
+  text-align: center;
+}
+
 .FAQ {
   font-size: 11pt;
+}
