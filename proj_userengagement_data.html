@@ -37,11 +37,13 @@
               <div class="page_name_two"  id='current_page_two'>
                 <a href="proj_userengagement_data.html">2. Reading Data</a></div>
               <div class="page_name_two">
-                <a href="proj_userengagement_eda.html">3. Who Are Our Users?</a></div>
+                <a href="proj_userengagement_eda.html">3. A First Look</a></div>
               <div class="page_name_two">
                 <a href="proj_userengagement_targets.html">4. Find The Targets</a></div>
               <div class="page_name_two">
                 <a href="proj_userengagement_models.html">5. Models</a></div>
+              <div class="page_name_two">
+                <a href="proj_userengagement_summary.html">6. Summary</a></div>
           </div>
 
     <div class="main_content">
@@ -53,11 +55,13 @@
         the other had all the message they sent.
 
 
-        <h3> User Data </h3>
+        <a href="https://github.com/rczyrnik/MatchingService/blob/master/002a_read_user_data.ipynb">
+          <h3 style="text-decoration: underline;"> User Data </h3>
+        </a>
 
         <p> I received a json file that contained about 50 columns of information for
-          over 35,000 users. My first pass through the data tried identify or create
-          useful information from the raw data. For example:
+          over 35,000 users. My first pass through the data identified or created
+          useful information by...
         </p>
 
         <ol>
@@ -100,19 +104,56 @@
         </ol>
 
         <p>
-          At the end, I had about 65 columns of information on each user.
+          At the end, I had about 65 columns of information on each of 25,000 users.
         </p>
 
-        <h3> Message Data </h3>
+        <a href="https://github.com/rczyrnik/MatchingService/blob/master/002b_read_message_data.ipynb">
+          <h3 style="text-decoration: underline;"> Message Data </h3>
+        </a>
 
         <p>
           The message data was a bit harder to tease apart. It appeared to be
           a mix of two tables, which I called the conversation table and
-          the last_message table. If JSON munging is your thing, I strongly
-          recommend heading over to my git repo for some fun.
+          the last_message table. Even with the pandas <code>read_json</code>
+          function, there was a lot to do to get the data grouped apropriately
+          by conversation.
         </p>
 
-
+        <ol>
+          <li class='bold'> Get Conversations </li>
+          <p>
+            The original json had two parts, which I called the "conversations"
+            part, and "users" part (not user information, alas). I just needed the
+            first part.
+          </p>
+          <li class='bold'> Get Information about the First Message </li>
+          <p>
+            Not every message had every feature, so I had to find what features
+            there were all together, and then pull out whatever information
+            the first message in each conversation could provide.
+          </p>
+          <li class='bold'> Get User IDs </li>
+          <p>
+            Obviously it is imporatnt to know who the two users are in each conversation
+            but this information wasn't provided directly. Instead, the two ten digit
+            user ids were smushed together as twenty digit conversation identifier,
+            and I had to work out which ten were the sender and which ten were the receiver.
+          </p>
+          <li class='bold'> Simple Feature Engineering </li>
+          <p>
+            Things like length of the first message and converting dates into a useful
+            format.
+          </p>
+          <li class='bold'> Restricting Dates </li>
+          <p>
+            Anything before March 1st didn't have a reliable message sent
+            each day, and anything after Sept 30 was saved for a final test case.
+          </p>
+        </ol>
+        <p>
+          I ended up with over 10,000 conversations, with 18 pieces of information
+          about each.
+        </p>
    </div>
 
 

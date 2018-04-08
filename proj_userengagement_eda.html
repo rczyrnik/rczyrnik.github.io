@@ -37,114 +37,216 @@
               <div class="page_name_two">
                 <a href="proj_userengagement_data.html">2. Reading Data</a></div>
               <div class="page_name_two"  id='current_page_two'>
-                <a href="proj_userengagement_eda.html">3. Who Are Our Users?</a></div>
+                <a href="proj_userengagement_eda.html">3. A First Look</a></div>
               <div class="page_name_two">
                 <a href="proj_userengagement_targets.html">4. Find The Targets</a></div>
               <div class="page_name_two">
                 <a href="proj_userengagement_models.html">5. Models</a></div>
+                <div class="page_name_two">
+                  <a href="proj_userengagement_summary.html">6. Summary</a></div>
           </div>
 
-    <div class="main_content">
-      <br/><br/><br/>
+<div class="main_content">
+<br/><br/><br/>
 
-            <div id="project_text2">
-              <br/>
-              <h3> Gender of Users </h3>
-              <p> Impressively even split of men and women. </p>
-              <p> According to the data, 100% percent of users identify as
-                male or female (i.e. there were no empty values and no
-                values besides male and female). Because the population
-                of the US as a whole doesn't neatly divide themselves into
-                two groups, some people may be either purposefuly
-                mis-identifed themselves or decided to not use the app. </p>
-            </div>
+<p> My first questions were about who was using the app and what sort of messages
+were being sent. Here's a summary of the most interesting findings.</p>
 
-            <img  id="project_pic2"
-                  src="capstone/eda_gender_of_users.png"
-                  alt="gender of users"/>
+<h1> WHO ARE OUR USERS? </h1>
+<div id="project_text2">
+  <br/>
+  <h3> Gender of Users </h3>
+  <p> Impressively even split of men and women. </p>
+  <p> According to the data, 100% percent of users identify as
+    male or female (i.e. there were no empty values and no
+    values besides male and female). Because the population
+    of the US as a whole doesn't neatly divide themselves into
+    two groups, some people may be either purposefuly
+    mis-identifed themselves or decided to not use the app. </p>
+</div>
 
-
-            <div id="project_text2">
-              <br/>
-              <h3> Age of Users </h3>
-              <p> There are no users below 18 (probably because the app doesn't
-              allow it). There are more and more users through the college ages,
-            perhaps as students drop out or move off campus, and then a pretty
-            steep drop off begining around age 23.  </p>
-            </div>
-              <img id="project_pic2"
-                    src="capstone/eda_age_of_users.png"
-                    alt="age of users"/>
+<img  id="project_pic2"
+      src="capstone/eda_gender_of_users.png"
+      alt="gender of users"/>
 
 
-
-            <div id="project_text2">
-              <br/>
-              <h3> Location of Users </h3>
-              <p> Users cluster around cities, with an especially large
-                contingent in the bay area and Los Angeles.</p>
-            </div>
-            <img id="project_pic2"
-                  src="capstone/eda_location_of_users.png"
-                  alt="location of users"/>
+<div id="project_text2">
+  <br/>
+  <h3> Age of Users </h3>
+  <p> There are no users below 18 (probably because the app doesn't
+  allow it). There are more and more users through the college ages,
+perhaps as students drop out or move off campus, and then a pretty
+steep drop off begining around age 23.  </p>
+</div>
+  <img id="project_pic2"
+        src="capstone/eda_age_of_users.png"
+        alt="age of users"/>
 
 
 
-        <h3> When are Users Signing Up? </h3>
-
-        <img src="capstone/eda_time_of_day.png" alt="time of day"
-              width="33%"
-              height="30%"
-              />
-        <img src="capstone/eda_day_of_week.png" alt="day of week"
-              width="33%"
-              height="30%"
-              />
-        <img src="capstone/eda_day_of_month.png" alt="day of month"
-              width="33%"
-              height="30%"
-              />
-
-        <p> <strong> Time of Day </strong> As if purposefully trying to adhere to stereotypes, users are most
-          active in the late evening and into the wee hours of the morning.
-          They are least likely to sign up during work hours.</p>
-        <p> <strong> Day of Week </strong> There's not a strong day-of-week effect, although users do
-        seem fractionally less likely to sign up over the weekend. </p>
-        <p> <strong> Week of Month </strong> The day of the month does seem to have a strong effect on
-          when users sign up. For the first week, sign ups are low, but then they
-          peak in the second week, drop in the third week, and then go back up
-          in the fourth week. Low sign-ups on the 31st only because not every
-          month has one. </p>
+<div id="project_text2">
+  <br/>
+  <h3> Location of Users </h3>
+  <p> Users cluster around cities, with an especially large
+    contingent in the bay area and Los Angeles.</p>
+</div>
+<img id="project_pic2"
+      src="capstone/eda_location_of_users.png"
+      alt="location of users"/>
 
 
 
+<h3> When are Users Signing Up? </h3>
 
-            <div id="project_text2">
-              <h3> What information are users sharing? </h3>
-              <p>
-                When users sign up, they are prompted to input information
-                about themselves and their ideal apartment. From most to least
-                popular, this is what percent of users shared each piece of information.
-              </p>
-            </div>
-            <img id="project_pic2"
-                  src="capstone/eda_percent_responding.png"
-                  alt="percent responding"/>
+<img src="capstone/eda_time_of_day.png" alt="time of day"
+  width="33%"
+  height="30%"
+  />
+<img src="capstone/eda_day_of_week.png" alt="day of week"
+  width="33%"
+  height="30%"
+  />
+<img src="capstone/eda_day_of_month.png" alt="day of month"
+  width="33%"
+  height="30%"
+  />
 
-            <div id="project_text2">
-              <h3> How long do users have to find a place? </h3>
-              <p>
-                About 3500 users put a date either in the past or over a year in the future.
-                A lot of users selected a date a month, two months, or three months out.
-              </p>
-            </div>
-
-              <img id="project_pic2" src="capstone/eda_time_to_find_a_room.png"  alt="time to find a room"/>
-
-
-
-   </div>
+<p> <strong> Time of Day </strong> As if purposefully trying to adhere to stereotypes, users are most
+active in the late evening and into the wee hours of the morning.
+They are least likely to sign up during work hours.</p>
+<p> <strong> Day of Week </strong> There's not a strong day-of-week effect, although users do
+seem fractionally less likely to sign up over the weekend. </p>
+<p> <strong> Week of Month </strong> The day of the month does seem to have a strong effect on
+when users sign up. For the first week, sign ups are low, but then they
+peak in the second week, drop in the third week, and then go back up
+in the fourth week. Low sign-ups on the 31st only because not every
+month has one. </p>
 
 
-  </body>
-  </html>
+
+<div id="project_text2">
+  <h3> How long do users have to find a place? </h3>
+  <p>
+    About 3500 users put a date either in the past or over a year in the future.
+    A lot of users selected a date a month, two months, or three months out.
+  </p>
+</div>
+
+<img id="project_pic2" src="capstone/eda_time_to_find_a_room.png"  alt="time to find a room"/>
+
+
+<div id="project_text2">
+<h3> What information are users sharing? </h3>
+<p>
+  When users sign up, they are prompted to input information
+  about themselves and their ideal apartment. From most to least
+  popular, this is what percent of users shared each piece of information.
+</p>
+</div>
+<img id="project_pic2"
+      src="capstone/eda_percent_responding.png"
+      alt="percent responding"/>
+</img>
+
+
+<h1> WHAT ABOUT THE MESSAGES? </h1>
+
+<div id="project_text2">
+    <h3>
+      How Many Messages Earn a Response?
+    </h3>
+    <p>
+      The most important graph! Only about 10% of messages get a response.
+    </p>
+</div>
+<img id="project_pic2"
+    src="capstone/response_rate_pie.png"
+    alt="response rate"/>
+</img>
+
+
+
+<h3> How Long are the Initial Messages? </h3>
+
+<img src="capstone/length_of_first_message.png" alt="time of day"
+  width="48%"
+  height="30%"
+  />
+<img src="capstone/length_of_first_message_response_rate.png" alt="day of week"
+  width="48%"
+  height="30%"
+  />
+<p> <strong> Length of First Message </strong> There are a lot of one-word
+messages (usually "hi!"), but most first messages are in the eight to ten word
+length.</p>
+<p> <strong> Effect on Response Rate </strong> The really short messages
+do just a shade worse than longer messages, and the optimal length seems
+to be in the mid twenties. </p>
+
+
+<br/><br/>
+<h3> How has the number of messages changed over the life of the app? </h3>
+
+<img src="capstone/first_message_day_of_year.png" alt="time of day"
+  width="48%"
+  height="30%"
+  />
+<img src="capstone/first_message_day_of_year_response_rate.png" alt="day of week"
+  width="48%"
+  height="30%"
+  />
+<p> <strong> Date of First Message </strong> Messages sent are increasing
+  rapidly, which is good!</p>
+<p> <strong> Effect on Response Rate </strong> Over time, the response rate
+has decreases a little. </p>
+<br/><br/>
+
+
+<h3> When are Users Sending Messages? </h3>
+
+<img src="capstone/first_message_time_of_day.png" alt="time of day"
+  width="33%"
+  height="30%"
+  />
+<img src="capstone/first_message_day_of_week.png" alt="day of week"
+  width="33%"
+  height="30%"
+  />
+<img src="capstone/first_message_day_of_month.png" alt="day of month"
+  width="33%"
+  height="30%"
+  />
+
+<img src="capstone/first_message_time_of_day_response_rate.png" alt="time of day"
+  width="33%"
+  height="30%"
+  />
+<img src="capstone/first_message_day_of_week_response_rate.png" alt="day of week"
+  width="33%"
+  height="30%"
+  />
+<img src="capstone/first_message_day_of_month_response_rate.png" alt="day of month"
+  width="33%"
+  height="30%"
+  />
+<p> <strong> Time of Day </strong> As if purposefully trying to adhere to stereotypes, users are most
+active in the late evening and into the wee hours of the morning.
+They are least likely to sign up during work hours.</p>
+<p> <strong> Day of Week </strong> There's not a strong day-of-week effect, although users do
+seem fractionally less likely to sign up over the weekend. </p>
+<p> <strong> Week of Month </strong> The day of the month does seem to have a strong effect on
+when users sign up. For the first week, sign ups are low, but then they
+peak in the second week, drop in the third week, and then go back up
+in the fourth week. Low sign-ups on the 31st only because not every
+month has one. </p>
+
+
+
+
+
+
+</div>
+
+
+</body>
+</html>

@@ -102,7 +102,7 @@
 
 .page_name_two {
       height: 100%;
-      width: 20%;
+      width: 16%;
       float: left;
       text-align: center;
       border: 10em;
@@ -110,7 +110,7 @@
 
 #current_page_two {
   color: red;
-  font-size: 16pt;
+  font-size: 12pt;
   font-weight: bold;
 
 }
@@ -237,6 +237,8 @@ IMG.displayed {
   width: calc(100% - 300pt)
 }
 
+
+
 pre {
   overflow:auto;
 }
@@ -301,10 +303,6 @@ IMG.justforfun {
     padding: 10pt 10pt 20pt 10pt;
     text-align: justified;
     border-radius: 5px;
-}
-
-h3.FAQBox {
-  text-align: center;
 }
 
 .FAQ {

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
-        <title> Fraud Detection </title>
-    </head>
 
-    <body>
+<head>
+    <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
+    <title> Fraud Detection </title>
+</head>
+
+<body>
 
 <!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
 <div class="navbar">
@@ -38,6 +39,9 @@
 
   <h3> Context </h3>
   <p class='FAQ'> This was the last case study I worked on at Galvanize.
+    It was amazing to see how far we had come from our first case study
+    back in November.
+
     My primary role was at the begining of the project, cleaning data,
     doing some exploratory data analysis, and creating the model we used
     to predict fraud.
@@ -48,7 +52,6 @@
   </p>
 </div>
 
-<br/><br/>
 
 <div style="width:100%; font-size:80%; text-align:center;">
   <img src="casestudies/fraud_mission.png"
@@ -58,41 +61,32 @@
         />
 </div>
 
-        <h2> INTRODUCTION </h2>
+<h2> THE DATA </h2>
 
-        <p> This was the last case study I did for Galvanize. We worked on it
-          over the last two days of the course and presented in the afternoon
-          right before graduation.
-        </p>
+<p>
+  The training dataset is made of 14,337 events, of which 1288 are
+  identified by the company as fraud (8.98%). There are
+  44 columns of information about the event.
+</p>
 
-        <p> It was amazing to see how far we had come from our first case study
-          back in November. We worked a lot more effectively and were able to
-          divide tasks up based on our specailties.
-        </p>
+<h2> DATA CLEANING </h2>
 
+<p>
+  Pandas has a great tool for reading Json files, so most of the data
+  was unpacked in a single line as
+</p>
 
-        <h2> THE DATA </h2>
-
-        <p> The training dataset is made of 14,337 events, of which 1288 are
-          identified by the company as fraud (8.98%). There are
-          44 columns of information about the event.
-        </p>
-
-        <h2> DATA CLEANING </h2>
-
-        <p> Pandas has a great tool for reading Json files, so most of the data
-         was unpacked in a single line as
-       </p>
-
-        <div><pre><code>
+<div><pre><code>
     df = pd.read_json('/data/data.json')
-        </code></pre></div>
 
-        <p> There were a couple columns that had nested json, such as "ticket_types".
-         A typical event might look like:
-       </p>
+</code></pre></div>
 
-        <div><pre><code>
+<p>
+  There were a couple columns that had nested json, such as "ticket_types".
+  A typical event might look like:
+</p>
+
+<div><pre><code>
     [{'availability': 1,
     'cost': 25.0,
     'event_id': 527017,
@@ -108,17 +102,17 @@
     'event_id': 527017,
     'quantity_sold': 0,
     'quantity_total': 20}]
-          </code></pre></div>
 
+</code></pre></div>
 
-        <p> To turn this into useful information, I wrote helper functions
-          to calculate the total possible profit and the number of tickets for
-          each event. I could then use simple division to find the average
-          ticket price, and the lenght function gave me the number of ticket types.
-        </p>
+<p>
+  To turn this into useful information, I wrote helper functions
+  to calculate the total possible profit and the number of tickets for
+  each event. I could then use simple division to find the average
+  ticket price, and the lenght function gave me the number of ticket types.
+</p>
 
-
-        <div><pre><code>
+<div><pre><code>
     def get_max_profit(row):
         return sum(level['cost']*level['quantity_total'] for level in row)
     def get_num_tickets(row):
@@ -128,76 +122,79 @@
     df['ticket_types_max_profit'] = df.ticket_types.apply(get_max_profit)
     df['ticket_types_num_tickets'] = df.ticket_types.apply(get_num_tickets)
     df['ticket_types_avg_price'] = df.ticket_types_max_profit/df.ticket_types_num_tickets
-          </code></pre></div>
 
-          <p> I used a similar method to get information about previous
-            payouts, as well as some simple datetime-ing to get information about
-            the hour, day, and date the event was created.
-          </p>
+</code></pre></div>
 
-          <p> The last step in data cleaning was to fill in NaN values with
-            the mean from that column. This was only an issue for "has header",
-            "average ticket price", and "average payout".
-          </p>
+<p>
+  I used a similar method to get information about previous
+  payouts, as well as some simple datetime-ing to get information about
+  the hour, day, and date the event was created.
+</p>
 
-          <h2> BUILDING A SIMPLE MODEL </h2>
+<p>
+  The last step in data cleaning was to fill in NaN values with
+  the mean from that column. This was only an issue for "has header",
+  "average ticket price", and "average payout".
+</p>
 
-          <p> Fittling a model was fairly straightforward. I split the data into
-            train and test sets using sklearn's model selection "train_test_split".
-          </p>
+<h2> BUILDING A SIMPLE MODEL </h2>
 
-          <p> I also oversampled from the fraud cases because they made such a
-            small proportion of the total (less than 10%). By oversampling I
-            can create a more balanced dataset.
-          </p>
+<p>
+  Fittling a model was fairly straightforward. I split the data into
+  train and test sets using sklearn's model selection "train_test_split".
+</p>
 
-          <p> I ran the data through sklearn's GradientBoostingClassifier (my
-            favorite). Even without fine tuning the parameters, I was able to
-            get a very impressive 87% recall, 93% precision, and 98% accuracy.
-          </p>
+<p>
+  I also oversampled from the fraud cases because they made such a
+  small proportion of the total (less than 10%). By oversampling I
+  can create a more balanced dataset.
+</p>
 
-          <p> At this point, I handed the cleaned data and model to another team
-            member to gridsearch, and I took a look at the most significant
-            features.
-          </p>
+<p>
+  I ran the data through sklearn's GradientBoostingClassifier (my
+  favorite). Even without fine tuning the parameters, I was able to
+  get a very impressive 87% recall, 93% precision, and 98% accuracy.
+</p>
 
-
-          <h2> INVESTIGATING RESULTS </h2>
-
-          <p> From my simple model, the most important features were:
-          </p>
-
-          <ul>
-            <li>event_created</li>
-            <li>previous_payouts_value_payouts</li>
-            <li>previous_payouts_num_payouts</li>
-            <li>body_length</li>
-            <li>ticket_types_avg_price</li>
-          </ul>
+<p>
+  At this point, I handed the cleaned data and model to another team
+  member to gridsearch, and I took a look at the most significant
+  features.
+</p>
 
 
-          <!-- <h2>event_created</h2>
+<h2> INVESTIGATING RESULTS </h2>
 
-          <br/>
-          <div style="width:100%; font-size:80%; text-align:center;">
-            <img src="casestudies/fraud_date_created_with_arrows.png"
-                  alt="Date created with arrows"
-                  width="80%"
-                  height="80%"
-                  />
-          </div> -->
+<p>
+  From my simple model, the most important features were:
+</p>
 
-
-
-
-          <br/>
-          <br/>
-          <br/>
-          <br/>
+<ul>
+  <li>event_created</li>
+  <li>previous_payouts_value_payouts</li>
+  <li>previous_payouts_num_payouts</li>
+  <li>body_length</li>
+  <li>ticket_types_avg_price</li>
+</ul>
 
 
+<!-- <h2>event_created</h2>
+
+<br/>
+<div style="width:100%; font-size:80%; text-align:center;">
+  <img src="casestudies/fraud_date_created_with_arrows.png"
+        alt="Date created with arrows"
+        width="80%"
+        height="80%"
+        />
+</div> -->
 
 
-     </div>
+<br/>
+<br/>
+<br/>
+<br/>
 
-  </body>
+</div>
+
+</body>
