@@ -49,69 +49,63 @@
 <div class="main_content">
 <br/><br/><br/>
 
-<h1> Logistic Regression </h1>
 
-<!-- <div><pre><code>
-METRICS
-Test recall:    71%
-Test precision: 22%
-Test accuracy:  69% -->
-<!-- KEY             WHAT WE SEE        WHAT WE SEE GUESSING RANDOMLY    WHAT WE WANT TO SEE
-                                   (based on 11% response rate)     (if we predicted perfectly)
-[TN   FP]       [ 62%  27%]        [ 79% 10%]                       [ 89%   0%]
-[FN   TP]       [  3%   8%]        [ 10%  2%]                       [ 0%   11%]
- -->
-<!-- MOST IMPORTANT FEATURES (green = more likely to respond, red = less likely)
-<div style='color: red'> 1. first_message_day_of_year </div><div style='color: green'> 2. created_day_of_year_receiver </div><div style='color: green'> 3. has_numRoommates_sender </div><div style='color: red'> 4. urgency_receiver </div><div style='color: green'> 5. td_creat_avail_receiver </div><div style='color: red'> 6. has_birthdate_receiver </div><div style='color: red'> 7. has_term_sender </div><div style='color: red'> 8. has_amenities_sender </div><div style='color: green'> 9. has_available_receiver </div><div style='color: green'> 10. has_about_receiver </div><div style='color: green'> 11. age_receiver </div><div style='color: green'> 12. has_password_receiver </div><div style='color: green'> 13. yes_room_receiver </div><div style='color: green'> 14. has_location_receiver </div><div style='color: red'> 15. created_day_of_year_sender </div><div style='color: red'> 16. gender_sender </div><div style='color: red'> 17. age_dif </div><div style='color: green'> 18. yes_block_receiver </div><div style='color: green'> 19. has_about_sender </div><div style='color: green'> 20. has_neighborhoods_receiver </div>
-</div></pre></code>
-<br/>
-<p>
-  Compared to guessing randomly, we get a much better recall (71% versus 14%)
-  and precision (22% versus 14%) but our overall accuracy doesn't improve.
-</p>
-<p>
-  Since our model is picking up on some signal, we can look at the most
-  predictive features to see what is going on.
-</p>
 
-  <img id="project_pic2"
-        src="capstone/response_rate_first_message_day_of_year.png"
-        alt="response rate"/>
-  <img id="project_pic2"
-        src="capstone/response_rate_created_day_of_year_receiver.png"
-        alt="response rate"/>
-<br/>
-  <p>
-    The two most important features are the day the message was sent and the day the
-    reciever created his or her account. Oddly, the overall response rate decreaes
-    over time while people who signed up more recently seem to respond more.
-    It is reasuring, though, that the graphs match the results of our test.
+
+  <br/>
+  <p> My final model combined random forest, gradient boosting, and ada boost.
+    By combining these three models, I achieved a stronger model than any one model individually.
   </p>
 
   <p>
-    Half of the most influential features are "has" featuers, which means that the
-    user selected an option. For example "has_numRoomates_sender" just means that
-    if the person who sent the message specifies how many roommates he or she would
-    like to have, his or her message is more likely to get a response.
+    Everytime the app suggests one user to another, it's making a prediction
+    that those two users will be a good match. The app has to balance showing
+    every user in the area, including users who are unlikely to respond,
+    against showing very few users and missing out on possible matches.
+    Where they put that cutoff depends in large part on the number of users in an area.
   </p>
+
   <p>
-    I wondered if the presence or absence of information may itself signal a more or less
-    active user, so I ran the same logistic regression, but this time bundeling
-    together all these signs of activity.
+    <strong>The ROC curve below shows this tradeoff.</strong> Each model individually
+    predicted a probability between 0 and 1, and then those probabilities add
+    together to get a number from 0 to 3.
   </p>
-<div><pre><code>
-  <div style='color: green'> 1. td_creat_avail_receiver </div><div style='color: red'> 2. urgency_receiver </div><div style='color: green'> 3. created_day_of_year_receiver </div><div style='color: red'> 4. first_message_day_of_year </div><div style='color: green'> 5. yes_room_receiver </div><div style='color: red'> 6. maxCost_receiver </div><div style='color: green'> 7. engagement_proxy_receiver </div><div style='color: green'> 8. rent_range_receiver </div><div style='color: red'> 9. created_day_of_year_sender </div><div style='color: green'> 10. len_about_receiver </div><div style='color: green'> 11. minCost_receiver </div><div style='color: green'> 12. user_similarity </div><div style='color: red'> 13. gender_sender </div><div style='color: green'> 14. age_receiver </div><div style='color: green'> 15. len_hobbies_receiver </div><div style='color: green'> 16. yes_block_receiver </div><div style='color: red'> 17. age_dif </div><div style='color: green'> 18. gender_receiver </div><div style='color: red'> 19. first_message_day_of_week </div><div style='color: red'> 20. urgency_sender </div>
-</div></pre></code>
 
-            </p>
-
-<p></p>
-<br/> -->
-
-      <h1> Decision Trees </h1>
-
-   </div>
+  <p> 3 is obviously a response, and 0 is no response, but what about 2 or 1, or 1.5?
+    The ROC curve represents moving the cutoff down from 3 (everyone's categorized as
+    a "no", no false positive, nut no true positives either) to a 0 (we catch 100%
+    of the true positives, but also mislabel 100% of the negatives as "yes").
 
 
-  </body>
-  </html>
+
+  <img  id="project_pic2"
+        src="capstone/ROC_curve_AB.png"
+        alt="ROC curve"/>
+
+
+  <h3> Point A: San Francisco, California </h3>
+  <p>
+    Tons of users, we can afford to miss out on a few opportuntiites.
+    The false positive rate is down at 10% so we are unlikely to show potential
+    users who wouldn't be a good match. To achieve such a low fals positive rate,
+    we have to accept a true positive rate at 50%, which isn't great;
+    it means we're not picking up on about half of potential matches.
+    But as long as there are lots of fish in the sea, it's not imperative
+    that we catch them all.
+  </p>
+
+  <h3> Point B: Hartford, Connecticut </h3>
+  <p>
+    I love my home state of Connecitcut, but there just isn't the density of
+    young people looking for shared housing. This means we can't be as picky
+    in matching users. Yes, our false positive rate jumps to 50%, meaning
+    about half the people we suggest won't be a match, but we need that high
+    false positive rate to maintain a 90% true positive rate, missing out on
+    very few potential matches.
+  </p>
+
+ </div>
+
+
+</body>
+</html>
