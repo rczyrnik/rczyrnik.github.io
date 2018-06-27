@@ -230,16 +230,16 @@ IMG.displayed {
 }
 
 
-/* #project_pic2 {
+#project_pic2 {
   float: left;
   width: 300pt;
-  /* margin-top: -20pt;
+  margin-top: -20pt;
 }
 
 #project_text2 {
   float: left;
   width: calc(100% - 300pt)
-} */
+} 
 
 
 
