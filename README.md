@@ -1,2 +1,2 @@
 # rczyrnik.github.io
-My website, located <a href='rczyrnik.githb.io'>here</a>.
+My website, located <a href='http://rczyrnik.github.io/'>here</a>.
