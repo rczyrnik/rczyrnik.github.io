@@ -201,47 +201,80 @@ table, th, td {
 
 IMG.displayed {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    margin-top: 36px;
     max-width: 80%;
     max-height: 300px;
+
     }
 
 /*><><><><><><><><><><><><><><><> INDEX: PROJECTS <><><><><><><><><><><><><><*/
 .projects {
   background-color: #C0C0C0;
   margin-bottom: 35pt;
-  padding-right: 35pt;
+  padding-right: 15pt;
   height: 150pt;
 }
 
-#project_pic {
+.project_pic {
   float: left;
   width: 150pt;
+  height: 150pt;
 }
 
-#project_text {
+.project_text {
   float: right;
-  width: calc(100% - 200pt)
+  width: calc(100% - 165pt);
+  text-align:justify
 }
 
 
-#project_pic2 {
+/* #project_pic2 {
   float: left;
   width: 300pt;
-  /* margin-top: -20pt; */
+  /* margin-top: -20pt;
 }
 
 #project_text2 {
   float: left;
   width: calc(100% - 300pt)
-}
+} */
 
 
 
 pre {
   overflow:auto;
 }
+/*><><><><><><><><><><><><><><> INDEX <><><><><><><><><><><><><*/
+.main_content_index {
+    padding-top: 2em;
+    margin: 1em 12em 0em 12em;
+    min-width: 40em;
+}
+
+.headshot {
+  float: right;
+  height: 250px;
+  margin-left: 4em;
+  /* margin: 50px */
+}
+
+.introduction {
+  margin-top: 4em;
+  height: 22em
+}
+
+.column_left {
+    float: left;
+    width: 48%;
+}
+
+.column_right {
+    float: right;
+    width: 48%;
+}
+
 /*><><><><><><><><><><><><><><> INDEX: JUST FOR FUN <><><><><><><><><><><><><*/
 DIV.justforfun {
     background-color: #C0C0C0;
@@ -262,7 +295,8 @@ IMG.justforfun {
 
 /*><><><><><><><><><><><><> BUTTON BOOP <><><><><><><><><><><*/
 .screenshot_iPhone {
-    width: 12em
+    width: 16em;
+    margin-bottom: -1.5em
 }
 
 /*><><><><><><><><><><><><> SHORT PROJECTS  <><><><><><><><><><><*/

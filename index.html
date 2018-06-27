@@ -9,60 +9,52 @@
   <body>
 
     <div class="navbar">
-        <div id="my_name" id='current_page'>
-          <a href="index.html">Rebecca Czyrnik</a></div>
-        <div class="page_name">
-          <a href="proj_userengagement.html"><br/>User Engagement</a></div>
-        <div class="page_name">
-          <a href="proj_frauddetection.html"><br/>Fraud Detection</a></div>
-        <div class="page_name">
-          <a href="proj_priceprediction.html"><br/>Price Prediction</a></div>
-        <div class="page_name">
-          <a href="fun_doggames.html"><br/>Dog Games</a></div>
-        <div class="page_name">
-          <a href="fun_calculators.html"><br/>Calculators</a></div>
-        <div class="page_name">
-          <a href="fun_camera.html"><br/>Camera</a></div>
-        <div class="page_name">
-          <a href="fun_spectroscope.html"><br/>Spectroscope</a></div>
-          <div class="page_name">
-            <a href="fun_shortprojects.html"><br/>Short Projects</a></div>
-    </div>
+        <div id="my_name" id='current_page'><a href="index.html">Rebecca Czyrnik</a></div>
+        <div class="page_name"><a href="proj_userengagement.html"><br/>User Engagement</a></div>
+        <div class="page_name"><a href="proj_frauddetection.html"><br/>Fraud Detection</a></div>
+        <div class="page_name"><a href="proj_priceprediction.html"><br/>Price Prediction</a></div>
+        <div class="page_name"><a href="fun_doggames.html"><br/>Dog Games</a></div>
+        <div class="page_name"><a href="fun_calculators.html"><br/>Calculators</a></div>
+        <div class="page_name"><a href="fun_camera.html"><br/>Camera</a></div>
+        <div class="page_name"><a href="fun_spectroscope.html"><br/>Spectroscope</a></div>
+        <div class="page_name"><a href="fun_shortprojects.html"><br/>Short Projects</a></div>
+    </div> <!-- Closes navbar -->
+
     <!--/*><><><><><><><><><><><><>  CONTENT  <><><><><><><><><><><*/-->
-    <div class="main_content">
+    <div class="main_content_index">
 
+      <div class='introduction'>
+      <img class='headshot' src="index/my_head_2.png">
 
-      <img class="displayed" src="index/my_head_2.png" align="right" height="250px" margin="50px">
-    </br>
-    </br>
+      <!-- <div class='introduction'> -->
       <p> Hello! I am a Data Science Resident at Galvanize in San Francisco. My
-        primary role is to help students succeed at the 12 week data science intensive
-        program, although I also do work supporting the instructors, as well as teaching
-        some evening python and stats programs.
-        </p>
+      primary role is to help students succeed at the 12 week data science intensive
+      program, although I also do work supporting the instructors, as well as teaching
+      some evening python and stats programs.
+      </p>
 
 
-        <p> A bit about me: I graduated from Yale with a degree in physics and then moved
-        to Korea to teach English as a Second Language. After three years away from home,
-        I returned to Connecticut and earned a Masters in Teaching. I taught physics at
-        a public high school in Fairfield County, but before long I started
-        looking for a greater challenge.
-        </p>
+      <p> A bit about me: I graduated from Yale with a degree in physics and then moved
+      to Korea to teach English as a Second Language. After three years away from home,
+      I returned to Connecticut and earned a Masters in Teaching. I taught physics at
+      a public high school in Fairfield County, but before long I started
+      looking for a greater challenge.
+      </p>
 
-        <p> Last fall I moved to San Francisco to persue a career in tech. I emrolled in
-        Galvanize's 12 week intensitve data science program (the same one I'm working
-        for now). It's been an amazing journey, but it's not over yet.
-
+      <p> Last fall I moved to San Francisco to persue a career in tech. I emrolled in
+      Galvanize's 12 week intensitve data science program (the same one I'm working
+      for now). It's been an amazing journey, but it's not over yet.
       </p>
 
       <p>  I put together this webpage to practice HTML and CSS.
-        I know it may be simple compared to profesionally-designed sites,
-        but it was made from scratch with love.
-        It is both a project and a repository for my projects,
-        which is pretty meta!
-        I hope you like it.
+      I know it may be simple compared to profesionally-designed sites,
+      but it was made from scratch with love.
+      It is both a project and a repository for my projects,
+      which is pretty meta!
+      I hope you like it.
       </p>
 
+    </div> <!-- closes introduction -->
       <!-- <p> In my previous life I was a high school physics teacher,
         and my experiences in the classroom continue to inform my new life in data science.
         Most directly, years in the classroom developed a passion in me for explaining difficult concepts
@@ -71,123 +63,73 @@
         and outside my specialty.
       </p> -->
 
+      <!-- <p> I'd love to hear about what you like and don't like.
+      Presumably if you're reading this it's because you already know me,
+      so send me a line in the usual way!
+      If you don't know me, then what brought you here?
+      I want to know! You can find me at rczyrnik@gmail.com
+      </p> -->
 
-      <p> I'd love to hear about what you like and don't like.
-        Presumably if you're reading this it's because you already know me,
-        so send me a line in the usual way!
-        If you don't know me, then what brought you here?
-        I want to know! You can find me at rczyrnik@gmail.com
-      </p>
+      <hr>
 
+      <div class='column_left'> <h2> Data Projects </h2> <br/>
 
-      <h2> Projects </h2>
-      <br/>
+        <a href="proj_userengagement.html"> <div class="projects">
+          <img class="project_pic" src="index/proj_userengagement.png">
+          <div class="project_text">
+            <h2>User Engagement</h2>
+            <p> Follow along as I investigate the features and interactions of users on a roommate matching app.</p>
+          </div>
+        </div></a>
 
-      <a href="proj_userengagement.html">
-      <div class="projects">
-        <div id="project_pic">
-          <img src="index/proj_userengagement.png" style="height: 150pt;">
+        <a href="proj_frauddetection.html"><div class="projects">
+          <img class="project_pic" src="index/proj_frauddetection.png">
+          <div class="project_text">
+            <h2> Detecting Fraud </h2>
+            <p> Using data from an e-commerce site, classentify possible fraud cases and build a flask app and web front-end to display results.</p>
+          </div>
+        </div></a>
+
+        <a href="proj_priceprediction.html"> <div class="projects">
+          <img class="project_pic" src="index/proj_priceprediction.png">
+          <div class="project_text">
+            <h2>Price Prediction</h2>
+            <p>Predict the sale price of a particular piece of heavy equipment at auction based on its usage, equipment type, and configuration.</p>
+          </div>
+        </div></a>
+
+    </div> <!-- Closes "Data Projects" Column -->
+
+    <div class='column_right'> <h2> Just For Fun </h2> <br/>
+
+      <a href="fun_doggames.html"><div class="projects">
+        <img class="project_pic" src="index/fun_kindo_black_border.png" >
+        <div class="project_text">
+          <h2>Kindo</h2>
+          <p>This project consists of an iPad app in Swift and an attached Arduino robot. It dispenses treats to a dog when he presses the right button.</p>
         </div>
-        <div id="project_text">
-          <h2>User Engagement</h2>
-          <p>
-            Follow along as I investigate the features and interactions of users
-            on a roommate matching app.
-          </p>
+      </div></a>
+
+      <a href="fun_calculators.html"> <div class="projects">
+        <img class="project_pic" src="index/fun_calculators.png" >
+        <div class="project_text">
+          <h2>Calculators</h2>
+          <p>Have you ever wondered what's inside a calculator? I have! This project evolved from my desire to peer inside my microelectronics. </p>
         </div>
-      </div>
-      </a>
+      </div> </a>
 
-      <a href="proj_frauddetection.html">
-      <div class="projects">
-
-        <div id="project_pic">
-          <img src="index/proj_frauddetection.png" style="height: 150pt;">
+      <a href="fun_camera.html"> <div class="projects">
+        <img class="project_pic" src="index/fun_camera.png" >
+        <div class="project_text">
+          <h2>Camera</h2>
+          <p>The strange thing is, I don't remember how this project started. I wanted to build a camera so I did. It uses mirrors and lenese to direct light onto photosensitive paper.</p>
         </div>
-        <div id="project_text">
-          <h2> Detecting Fraud </h2>
-          <p> Using data from an e-commerce site, identify possible fraud
-            cases and build a flask app and web front-end to display results.
-          </p>
-        </div>
-
-      </div>
-      </a>
-      <!-- <div class="projects">
-        <div id="project_pic">
-          <img src="index/proj_ufosightings.png" style="height: 150pt;">
-        </div>
-        <div id="project_text">
-          <h2> UFO Sightings</h2>
-          <p>
-            TEXT HERE
-          </p>
-        </div>
-      </div>
-
-      <a href="proj_churnprediction.html">
-      <div class="projects">
-        <div id="project_pic">
-          <img src="index/proj_churnprediction.png" style="height: 150pt;">
-        </div>
-        <div id="project_text">
-          <h2>Churn Prediction</h2>
-          <p>
-            Investigate a dataset to better understand why users stop
-            using a ride sharing app, and build a model to
-            predict which users are most likely to leave.
-          </p>
-        </div>
-      </div>
-    </a> -->
+      </div></a>
 
 
-      <a href="proj_priceprediction.html">
-      <div class="projects">
 
-        <div id="project_pic">
-          <img src="index/proj_priceprediction.png" style="height: 150pt;">
-        </div>
-        <div id="project_text">
-          <h2>Price Prediction</h2>
-          <p>
-            Predict the sale price of a
-            particular piece of heavy equipment at auction based on
-            its usage, equipment type, and configuration.
-          </p>
-        </div>
+    </div> <!-- Closes "Just For Fun" Column -->
 
-      </div>
-      </a>
+  </div> <!-- Closes "Main Content"  -->
 
-
-    <h2> Just For Fun </h2>
-    <p>
-      If you really want to know who I am, what better way than by checking
-      out what I do in my spare time? </p>
-
-    <div class="justforfun">
-
-      <a href="fun_calculators.html">
-      <img class="justforfun" src="index/fun_calculators.png">
-      </a>
-
-      <a href="fun_camera.html">
-      <img class="justforfun" src="index/fun_camera.png">
-      </a>
-
-      <a href="fun_doggames.html">
-      <img class="justforfun" src="index/fun_doggames.png">
-      </a>
-
-      <a href="fun_spectroscope.html">
-      <img class="justforfun" src="index/fun_spectroscope.png">
-      </a>
-
-      <a href="fun_shortprojects.html">
-      <img class="justforfun" src="index/fun_blocks.png">
-      </a>
-
-    </div>
-  </div>
 </body>
