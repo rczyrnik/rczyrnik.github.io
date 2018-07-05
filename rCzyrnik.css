@@ -239,7 +239,7 @@ IMG.displayed {
 #project_text2 {
   float: left;
   width: calc(100% - 300pt)
-} 
+}
 
 
 
@@ -257,12 +257,12 @@ pre {
   float: right;
   height: 250px;
   margin-left: 4em;
+  margin-top: 2em;
   /* margin: 50px */
 }
 
 .introduction {
-  margin-top: 4em;
-  height: 22em
+  margin-top: 2em;
 }
 
 .column_left {
