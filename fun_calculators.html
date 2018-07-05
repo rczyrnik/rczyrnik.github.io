@@ -94,7 +94,7 @@
             LED turn on. You may recognize this as an AND gate: true if A and B are pressed,
            false otherwise.</p>
 
-          <h3> <em>1 + 0 = 1</em> and <em>0 + 1 = 1</em></h3>
+          <h3> <em>1 + 0 = 1 and 0 + 1 = 1</em></h3>
           <p> The two buttons on the yellow loop are placed in parallel. That way
             if either of the two buttons is pressed the light will turn on, even
             if the other button isn't pressed. This makes an OR gate, true if A or B
@@ -109,6 +109,8 @@
             when both buttons are pressed, preventing that LED from lighting up. It creates
             the NOT AND part of this circuit.</p>
 
+
+          <h3> <em>Summary</em></h3>
           <p> These three components make up a half-adder. It's great for adding the 1s digits,
             but not good enough for a 10s digit because there's no place for a carry in. But
             I'm getting ahead of myself. </p>
@@ -120,24 +122,24 @@
             control the three loops. Even better, we would like to have some
             way to have the outpus of one calculation (which light bulb turns on)
             affect the inputs of another (which buttons we press) so we can combine
-            calculations to get numbers treater than two. </p>
+            calculations to get numbers greater than two. </p>
 
-          <p> Behold the transistor, fundamental building block of modern electronics.
+          <p> <strong>Behold the transistor, fundamental building block of modern electronics. </strong>
             They even come pre-assembled into logic gates for us, which means I can
-            build a calculator that adds up to 14 with only 70-or-so wires. </p>
+            build a calculator that adds up to 14 with only 40-or-so wires. </p>
 
           <img class="displayed" src="calculators/calculator_3.jpg">
 
           <p> The board to the left is the input-pad with two rows of buttons. White buttons
             are "1", green buttons are "2", and blue buttons are "4", meaning the largest
-            number you can make is 1+2+4 = 7 by pressing all of the buttons at once. Press all
+            number you can make is 1+2+4 = 7, by pressing all of the buttons at once. Press all
           six buttons and you get 7 + 7 = 14, the largest number this calculator can add to.</p>
 
           <p> The white circuit at the top is a half adder. It is a slightly neater implementation
           of the circuit I built at the top of the page, with the benefit of each input being just one
         button and the outputs being electric signals rather than LEDs. </p>
 
-          <p> The large birds nest at the center is the two full adders that allow us to add past
+          <p> The large bird's nest at the center is the two full adders that allow us to add past
             two. And on the far right you can just make out four LEDS that represent a four-digit
             binary number. I did make a binary-to-digital decoder (pictured below) but it
             has since been scrapped for parts. </p>
