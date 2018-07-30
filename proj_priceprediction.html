@@ -10,16 +10,15 @@
 
 <!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
 <div class="navbar">
-  <div id="my_name"><a href="index.html">Rebecca Czyrnik</a></div>
-    <div class="page_name"><a href="proj_analysis.html"><br/>Acme Co</a></div>
-  <div class="page_name"><a href="proj_userengagement.html"><br/>User Engagement</a></div>
-  <div class="page_name"><a href="proj_frauddetection.html"><br/>Fraud Detection</a></div>
-  <div class="page_name" id='current_page'><a href="proj_priceprediction.html"><br/>Price Prediction</a></div>
-  <div class="page_name"><a href="fun_doggames.html"><br/>Games For Dogs</a></div>
-  <div class="page_name"><a href="fun_calculators.html"><br/>Calculators</a></div>
-  <div class="page_name"><a href="fun_camera.html"><br/>Camera</a></div>
-  <div class="page_name"><a href="fun_spectroscope.html"><br/>Spectroscope</a></div>
-  <div class="page_name"><a href="fun_shortprojects.html"><br/>Short Projects</a></div>
+  <div id="my_name"><a href="index.html">Rebecca Czyrnik</div></a>
+  <a href="proj_analysis.html"><div class="page_name"><br/>Acme Co</div></a>
+  <a href="proj_userengagement.html"><div class="page_name"><br/>User Engagement</div></a>
+  <a href="proj_priceprediction.html"><div class="page_name" id='current_page'><br/>Price Prediction</div></a>
+  <a href="fun_doggames.html"><div class="page_name"><br/>Games For Dogs</div></a>
+  <a href="fun_calculators.html"><div class="page_name"><br/>Calculators</div></a>
+  <a href="fun_camera.html"><div class="page_name"><br/>Camera</div></a>
+  <a href="fun_spectroscope.html"><div class="page_name"><br/>Spectroscope</div></a>
+  <a href="fun_shortprojects.html"><div class="page_name"><br/>Short Projects</div></a>
 </div> <!-- Closes navbar -->
 
     <div class="main_content">
@@ -58,12 +57,13 @@
                 <br >
 
         </div>
+        <br/><br/>
         <h2> Step 0: The Background Stuff </h2>
         <p> I wouldn't want to lose your interest with background imports and functions,
         but you can head over here (hyperlink forthcoming) for more details.
         </p>
 
-
+<br/><br/>
         <h2> Step 1: Get Average Sale Price By Model </h2>
         <p>
           <strong> Here's where things get interesting! </strong>
@@ -100,7 +100,7 @@
           $15,570 per item. So if I were to predict the price of another item with
           a model id of 28, $15,570 is not a bad guess.
         </p>
-
+<br/><br/>
         <h2> Step 2: Create A Function That Predicts Sale Price By Simple Lookup </h2>
         <p>
           In order to make predictions, we need a function that looks up the predicted price.
@@ -119,7 +119,7 @@
 
   avg_sale_price = train_df.SalePrice.sum()/len(train_df)
         </code></pre>
-
+<br/><br/>
         <h2> Step 3: Use The Function To Predict Prices in the Test Data </h2>
         <p>
           The final step - use the "predict prices" function to predict prices
@@ -172,7 +172,7 @@
           such as equiptment age, but in the future that could be a very rich
           avenue of study.
         </p>
-
+<br/><br/>
         <h2> Summary </h2>
         <p> I was really proud that my method did so well, although I did find it odd
           that I didn't actually use linear regression.
