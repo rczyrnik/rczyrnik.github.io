@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
+        <title> Predicting Lock Rates </title>
+    </head>
+
+    <body>
+
+<!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
+    <div class="navbar">
+      <div id="my_name"><a href="index.html">Rebecca Czyrnik</a></div>
+        <div class="page_name" id='current_page'><a href="proj_analysis.html"><br/>Acme Co</a></div>
+      <div class="page_name"><a href="proj_userengagement.html"><br/>User Engagement</a></div>
+      <div class="page_name"><a href="proj_frauddetection.html"><br/>Fraud Detection</a></div>
+      <div class="page_name"><a href="proj_priceprediction.html"><br/>Price Prediction</a></div>
+      <div class="page_name"><a href="fun_doggames.html"><br/>Games For Dogs</a></div>
+      <div class="page_name"><a href="fun_calculators.html"><br/>Calculators</a></div>
+      <div class="page_name"><a href="fun_camera.html"><br/>Camera</a></div>
+      <div class="page_name"><a href="fun_spectroscope.html"><br/>Spectroscope</a></div>
+      <div class="page_name"><a href="fun_shortprojects.html"><br/>Short Projects</a></div>
+  </div> <!-- Closes navbar -->
+
+    <div class="main_content" id='analysis_content'>
+      </br>      </br>
+
+      <div class='column_left_analysis'>
+
+      </br>
+        <h3> Introduction </h3>
+        <p>Currently, fewer than one in twenty prospective loan applicants who start the application process on Acme Co's website (not their real name) get a loan. Following up with every applicant is expensive and unnecessary. My goal was to predict which applicants are good candidates so Acme Co can follow up with the most likely applicants.</p>
+
+      </br>
+        <h3> The Data </h3>
+        <p>I worked with the data of approximately 19,000 candidates. Instead predicting loans, I predicted who would lock a rate. Locking in a rate reliably leads to a successful loan, and is an earlier stage in the process.</p>
+        <p>Candidates can apply for loans to both purchase and refinance a home. "Purchase" is a newer category; there are fewer applicants and the lock rate is down about 1%. "Refinance" has a longer history and a higher lock rate.</p>
+
+      </br>
+        <h3> A Baseline Model </h3>
+        <p>When a candidate applies online, they go through a multi-step process. Most candidates don't make it to the end, but if they do, they are significantly (and unsurprisingly) more likely to lock. As a very simple baseline I predicted that any applicant who reached the fifth stage would lock.</p>
+        <div style="width:100%; font-size:80%; text-align:center;"><img src="analysis/baseline.png" alt="baseline model" width="60%"/></div>
+        <p>This model does very well, with 92.6% recall and 21.2% precision. Very roughly speaking, this means that using this model, Acme Loans can expect that about a fifth of the people they call will lock, and that they will only miss out on 7.5% of potential lockers.</p>
+        <p>Can I do better?</p>
+
+      </br>
+        <h3> My Model </h3>
+          <p> Yes and no. </p>
+          <p> My best model had a nearly the same scores as the baseline model, so you may be tempted to conclue that they are the same. But, my model allows for more nuance than the baseline model. Recal that the baseline model simply predicted "yes" whenever a user reached at least stage 5. Following the baseline model, Acme Co would never bother calling anyone from the first four stages. This ignores that fact that 20% of all successful applicants stopped before stage 5, and of users who reached stage 5, less than half lock.
+          <div style="width:100%; font-size:80%; text-align:center;"><img src="analysis/refinance_pie.png" alt="refinance pie chart" width="60%"/></div>
+
+          <p> My model allows Acme Co to be more discerning in who they call. It can help identify users who stop early but none the less could be good candidates. And it helps eliminate candidates who  aren't likely to lock despite reaching the last stages. It also helps compare two users and identify which of the two is more likely to lock. </p>
+          <p>
+
+
+
+
+     </div> <!-- Closes column left -->
+     <div class="column_right_analysis">
+       <a href="proj_analysis.html"><div class = "AnalysisBox" id = 'TopBox'><h3> Acme Co </h3></div></a>
+       <a href="proj_analysis_metrics.html"><div class = "AnalysisBox"><h4> How Did I </h4><h3> Choose a Metric? </h3></div></a>
+       <a href="proj_analysis_blanks.html"><div class = "AnalysisBox"><h4> How Did I </h4><h3> Fill Blanks? </h3></div></a>
+       <a href="proj_analysis_probabilities.html"><div class = "AnalysisBox"><h4> How Did I </h4><h3> Calculate Probabilities? </h3></div></a>
+       <a href="proj_analysis_predictions.html"><div class = "AnalysisBox"><h4> How Did I </h4><h3> Display Predictions? </h3></div></a>
+
+
+     <div>  <!-- Closes column right-->
+
+
+     </div> <!-- Closes main content -->
+  </body>

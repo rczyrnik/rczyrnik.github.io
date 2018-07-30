@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
+        <title> Predicting Lock Rates </title>
+    </head>
+
+    <body>
+
+<!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
+<div class="navbar">
+    <div id="my_name"><a href="index.html">Rebecca Czyrnik</a></div>
+      <div class="page_name" id='current_page'><a href="proj_analysis.html"><br/>Acme Co</a></div>
+    <div class="page_name"><a href="proj_userengagement.html"><br/>User Engagement</a></div>
+    <div class="page_name"><a href="proj_frauddetection.html"><br/>Fraud Detection</a></div>
+    <div class="page_name"><a href="proj_priceprediction.html"><br/>Price Prediction</a></div>
+    <div class="page_name"><a href="fun_doggames.html"><br/>Games For Dogs</a></div>
+    <div class="page_name"><a href="fun_calculators.html"><br/>Calculators</a></div>
+    <div class="page_name"><a href="fun_camera.html"><br/>Camera</a></div>
+    <div class="page_name"><a href="fun_spectroscope.html"><br/>Spectroscope</a></div>
+    <div class="page_name"><a href="fun_shortprojects.html"><br/>Short Projects</a></div>
+</div> <!-- Closes navbar -->
+    <div class="main_content" id='analysis_content'>
+          </br>
+          </br>
+          <div class='column_left_analysis'>
+
+          <p> The primary output of this project was a model that predicts the likelihood that a user will lock. Acme Co can then add that prediction to the user's record for employees to consider.</p>
+
+          <p> However, I wanted to have a way to display a user's profile relative to other users, and perhaps give some insight into why a user would or wouldn't lock.</p>
+
+          <p> I built a python app that displays a user's probability of locking, and graphs that user's features against other users.</p>
+
+        </br></br>
+          <h3> Load screen </h3>
+          <p> Enter a user's unique id </p>
+          <div style="width:100%; font-size:80%; text-align:center;"><img src="analysis/pygame_enter_uuid.png" alt="uuid" width="100%"/></div>
+
+        </br></br>
+          <h3> Display </h3>
+          <p> Show graphs of all users with the target user's value marked. A feature is along the x-axis and the percent locking is the y-axis.</p>
+          <div style="width:100%; font-size:80%; text-align:center;"><img src="analysis/pygame_overview.png" alt="overview" width="100%"/></div>
+
+        </br></br>
+          <h3> Detail </h3>
+          <p> The graphs are a bit small, so click on one to see it in more detail. This user is 30 years old. Overall, 30 year olds lock about 30% of the time, suggesting that this user may be more likely to lock than most.</p>
+          <div style="width:100%; font-size:80%; text-align:center;"><img src="analysis/pygame_detail.png" alt="detail" width="100%"/></div>
+
+         </div> <!-- Closes column left -->
+
+         <div class="column_right_analysis">
+
+           <a href="proj_analysis.html"><div class = "AnalysisBox"><h3> Acme Co </h3></div></a>
+           <a href="proj_analysis_metrics.html"><div class = "AnalysisBox"><h4> How Did I </h4><h3> Choose a Metric? </h3></div></a>
+           <a href="proj_analysis_blanks.html"><div class = "AnalysisBox"><h4> How Did I </h4><h3> Fill Blanks? </h3></div></a>
+           <a href="proj_analysis_probabilities.html"><div class = "AnalysisBox"><h4> How Did I </h4><h3> Calculate Probabilities? </h3></div></a>
+           <a href="proj_analysis_predictions.html"><div class = "AnalysisBox" id = 'TopBox'><h4> How Did I </h4><h3> Display Predictions? </h3></div></a>
+
+         <div>  <!-- Closes column right-->
+
+     </div> <!-- Closes main content -->
+
+  </body>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
+        <title> Predicting Lock Rates </title>
+    </head>
+
+    <body>
+
+<!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
+<div class="navbar">
+    <div id="my_name"><a href="index.html">Rebecca Czyrnik</a></div>
+      <div class="page_name" id='current_page'><a href="proj_analysis.html"><br/>Acme Co</a></div>
+    <div class="page_name"><a href="proj_userengagement.html"><br/>User Engagement</a></div>
+    <div class="page_name"><a href="proj_frauddetection.html"><br/>Fraud Detection</a></div>
+    <div class="page_name"><a href="proj_priceprediction.html"><br/>Price Prediction</a></div>
+    <div class="page_name"><a href="fun_doggames.html"><br/>Games For Dogs</a></div>
+    <div class="page_name"><a href="fun_calculators.html"><br/>Calculators</a></div>
+    <div class="page_name"><a href="fun_camera.html"><br/>Camera</a></div>
+    <div class="page_name"><a href="fun_spectroscope.html"><br/>Spectroscope</a></div>
+    <div class="page_name"><a href="fun_shortprojects.html"><br/>Short Projects</a></div>
+</div> <!-- Closes navbar -->
+
+    <div class="main_content" id='analysis_content'>
+          </br>
+          </br>
+          <div class='column_left_analysis'>
+            <h1>Converting from Raw Score to Real Probabilities</h1>
+
+            <p>As mentioned before, the model’s output isn’t a simple “lock” or “no lock”, but instead a value between 0 and 1 that represents the model’s confidence that that user will lock. To calculate precision and recall, we artificially set a cutoff and call anything above that a ‘lock’ and anything below that ‘not-a-lock’.</p>
+
+            <p>Reporting for each user only 'lock' or 'no lock' loses the subtelty of "really high score and super likely to lock" versus "right at the cutoff and could easily go either way". Suppose someone from Acme Co has two users to call but only time for one. It would be helpful to know that the first user just barely made the cutoff while the other passed it easily.</p>
+
+            <p>Even better would be to have a number that can be interpreted as “percent probability of locking”. Not only can we compare two users that way, but we can perhaps make plans and take risks based on accurate probabilities. </p>
+
+            <p>Let's go back to the graph we used when we chose a metric. We decided anything with a score above the black cutoff would be a predicted "lock" and anything with a raw score below the cutoff would be a "not-lock".</p>
+            <div style="width:100%; font-size:80%; text-align:center;"><img src="analysis/real_output_with_cutoff.png" alt="real output" width="60%"/></div>
+
+
+            <p>How can we convert the raw score to a percent probability? Let’s walk through the graph below. Along the x-axis are the raw scores put out by the model. This model produces scores from the low teens to the high 70s. </p>
+            <div style="width:100%; font-size:80%; text-align:center;"><img src="analysis/raw_to_percent.png" alt="raw_to_percent" width="60%"/></div>
+
+            <p>The red histogram represents how many locking users had that score, while the blue plot represents not-locking users. </p>
+
+            <p>Consider a raw score of .15. There are nearly ten thousand not-locking users and not a single locking user. If an unknown user has a raw score of .15 we can be extremely confident that he won’t lock.</p>
+            <p>Now consider a raw score if .65. There are about 65 locking users and 70 not-locking users. A user with a raw score of .65 is just about equally likely to be a True Positive as a False Positive.</p>
+
+
+            <p>The black scatter plot represents these probabilities. The value at .15 is 0%, while the value at .65 is 48%. I’ve added a best fit line to convert from the raw score to the percent probability. </p>
+     </br></br></br></br>
+
+         </div> <!-- Closes column left -->
+
+         <div class="column_right_analysis">
+
+           <a href="proj_analysis.html"><div class = "AnalysisBox"><h3> Acme Co </h3></div></a>
+           <a href="proj_analysis_metrics.html"><div class = "AnalysisBox"><h4> How Did I </h4><h3> Choose a Metric? </h3></div></a>
+           <a href="proj_analysis_blanks.html"><div class = "AnalysisBox"><h4> How Did I </h4><h3> Fill Blanks? </h3></div></a>
+           <a href="proj_analysis_probabilities.html"><div class = "AnalysisBox" id = 'TopBox'><h4> How Did I </h4><h3> Calculate Probabilities? </h3></div></a>
+           <a href="proj_analysis_predictions.html"><div class = "AnalysisBox"><h4> How Did I </h4><h3> Display Predictions? </h3></div></a>
+
+         <div>  <!-- Closes column right-->
+
+     </div> <!-- Closes main content -->
+
+  </body>
