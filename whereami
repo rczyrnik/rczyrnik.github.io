@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="rCzyrnik.css"/>
+    <title> Calculators </title>
+  </head>
+
+ <body>
+
+
+<!--/*><><><><><><><><><><><><>  NAVBAR  <><><><><><><><><><><*/-->
+<div class="navbar">
+    <div id="my_name"><a href="index.html">Rebecca Czyrnik</a></div>
+    <div class="page_name">
+      <a href="proj_frauddetection.html"><br/>Fraud Detection</a></div>
+    <div class="page_name">
+      <a href="proj_priceprediction.html"><br/>Price Prediction</a></div>
+    <div class="page_name">
+      <a href="fun_doggames.html"><br/>Dog Games</a></div>
+    <div class="page_name">
+      <a href="fun_calculators.html"><br/>Calculators</a></div>
+    <div class="page_name">
+      <a href="fun_camera.html"><br/>Camera</a></div>
+    <div class="page_name">
+      <a href="fun_spectroscope.html"><br/>Spectroscope</a></div>
+      <div class="page_name">
+        <a href="fun_shortprojects.html"><br/>Short Projects</a></div>
+</div>
+
+<!-- /*><><><><><><><><><><><><>  CONTENT  <><><><><><><><><><><*/ -->
+<div class="main_content">
+
+<h1> Where am I? </h1>
+
+
+
+
+
+</body>
